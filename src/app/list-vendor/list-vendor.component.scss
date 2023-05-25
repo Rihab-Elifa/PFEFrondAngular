@@ -1,0 +1,19 @@
+.container {
+    max-width: 100%;
+    height: auto;
+  }
+img{
+    width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+.page{
+  background-color: #FC2947;
+  padding-top: 50px;
+  width: 100%;
+  text-align: center;
+  padding-left: 800px;
+  font-size: x-large;
+}

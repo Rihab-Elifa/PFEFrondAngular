@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <h1>Order Informations</h1>
+    <div class="container">
+      <div class="row">
+       <div class="col-7">
+        <h2><span>Client info</span></h2>
+        <p>Name:{{user.firstName}}  {{user.lastName}} </p>
+        <p>Phone Number:{{user.phone}}</p>
+        <p>{{now}}</p>
+
+       </div>
+       <div class="col-5">
+       
+          <div class="alert alert-light" role="alert">
+            <h4 class="alert-heading">Vendor info!</h4>
+            <p>title of vendor : {{products[0].page.title}}</p>
+            <hr>
+            <p class="mb-0">Mail: {{products[0].page.email}}</p>
+
+            <p class="mb-0">Phone Number : {{products[0].page.phone}}</p>
+       
+
+       </div>
+      </div>
+    </div>
+
+ 
+   
+    <div class="row">
+    
+   <div class="col-7">
+    <form class="row g-3">
+       
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" [(ngModel)]="Commande.address"  [ngModelOptions]="{ standalone: true }" id="address" name="" placeholder="1234 Main St">
+        </div>
+      
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <select id="inputCity" class="form-select" [(ngModel)]="Commande.city" [ngModelOptions]="{ standalone: true }" name="">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select" [(ngModel)]="Commande.streetAddress"  [ngModelOptions]="{ standalone: true }" name="">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" [(ngModel)]="Commande.description"id="description" [ngModelOptions]="{ standalone: true }"style="height: 100px"></textarea>
+          <label for="floatingTextarea2">Comments</label>
+        </div>
+        <div class="">
+          <button type="submit" class="btn btn-danger" (click)="modif()">Save</button>
+        </div>
+      </form>
+
+
+
+    </div>
+    <div class="col-5">
+      <div class="card border-danger mb-3" >
+          <div class="card-header hed"><span> Produit info</span></div>
+          <div class="card-body text-danger" *ngFor="let p of products">
+           
+            
+          <div class="row">
+            <div class="col">
+              <div class="col-md-3">
+                <div class="">
+                  <h5 class="card-title">{{p.qty}} {{p.name}}</h5>
+                  <img [src]="'data:image/jpeg;base64,'+p.image.bytes" alt="Product" alt="" class="img-circle">
+                </div>
+              </div>
+              </div>
+              <div class="col">
+                <h5>{{p.quantity}} {{token}}{{p?.nom}}: <span>${{p?.prix*p?.quantity}}</span></h5>
+                <span class="text-muted">Product Description</span>
+                <p>
+                  {{p?.description}}
+                </p>
+
+              </div>
+
+
+            
+          </div>
+           
+            <div>
+              <div>
+           
+           
+          </div>
+          
+        
+        </div>
+        <hr>
+        </div>
+       
+          <h5 class="card-title">Total :{{total | currency}}</h5>
+        <h5 class="card-title">Livreur :10$</h5>
+        <h5 class="card-title">Somme :{{total +10 | currency}}</h5>
+          <button type="submit" class="btn btn-danger" (click)="Confirmer()">Confirmer</button>
+        </div>
+  </div>
+
+
+
+
+</div>
+
+

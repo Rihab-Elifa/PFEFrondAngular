@@ -1,0 +1,48 @@
+.local{
+    position: center;
+    margin-right: 500Px;
+    margin-left: 300px;
+    margin-top: 300px;
+}
+.image{
+    margin-top: auto;
+    padding-top: 600px;
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(213, 21, 40, 0.5)),   
+                   url("../../assets/2.jpg");
+}
+.color{
+    background-color: #7149C6;
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size:xx-large;
+    h1{
+        color: #FC2947;
+    }
+}
+.search{
+    
+    padding: auto;
+    color: #FC2947;
+    .mm:focus-within{
+        background-color: #7149C6;
+
+    }
+
+}
+i{
+    color:  #FC2947;
+    font-size:x-large;
+    padding-left: 20px;
+    
+}
+class1{
+    margin-top: 5vh;
+    margin-left:2%;
+   
+
+}
+.card1{
+    float: left;
+    margin-left: 3%;
+}

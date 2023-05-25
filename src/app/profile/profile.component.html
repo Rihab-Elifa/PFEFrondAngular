@@ -1,0 +1,40 @@
+   
+   <ul class="nav flex-column">
+    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="vendor">Create page</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="UpdatePage/{{user.id}}">Update page</a>
+    </li>
+   
+    <li class="nav-item">
+      <a class="nav-link" (click)="logout()">Log out</a>
+    </li>
+  </ul>
+<div class="div"><h2>{{user.email}}</h2>
+<h1>Welcome {{subString}}</h1>
+<h2> Name:{{user.firstName}}</h2>
+<h2>phone:{{user.phone}}</h2>
+<h2 *ngFor="let p of user.ppg">pages 1:{{p.id}}</h2>
+<button class="btn btn-danger btn-block" (onclick)="click()">
+  Liste user
+</button>
+<button class="btn  btn-block btn2" ><a routerLink="update/{{user.id}}">
+  EditUser</a>
+</button>
+<button  class="btn  btn-danger" ><a  routerLink="vendor">
+
+  Create Page</a>
+</button>
+
+<button class="btn  btn-block " ><a routerLink="profile-vendor">
+  MyPages</a>
+</button>
+
+
+</div>
+<div class="container">
+ <router-outlet></router-outlet>
+
+</div>

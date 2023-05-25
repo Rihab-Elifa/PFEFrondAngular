@@ -1,0 +1,20 @@
+.color{
+  padding: 15px;
+
+  margin-bottom: 15px;
+  text-align: center;
+  
+ 
+  h1{
+    text-align: center;
+    color: #FC2947;
+  }
+
+}
+img{
+    width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

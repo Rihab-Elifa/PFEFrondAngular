@@ -1,0 +1,10 @@
+export const  activityy =[  "RESTAURANTS",
+  "MODE",
+  "BEAUTE",
+  "FOOD",
+  "MAGAZINE",
+  "ELECTRONIQUES",
+  "ELECTROMENAGER",
+  "SUPERETTE",
+  "SPORTS",
+  "PATISSERIE"]

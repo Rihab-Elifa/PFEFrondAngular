@@ -1,0 +1,37 @@
+.avatar {
+    width: 150px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    
+    margin: auto;
+  }
+  .image{
+    width: 100%;
+    height: 300px;
+  }
+  class{
+    margin-top: 5vh;
+    margin-left:2%;
+   
+
+}
+.card{
+    float: left;
+    margin-left: 3%;
+}
+.fa-camera{
+  font-size: x-large;
+
+}
+.relative{
+  position: relative;
+}
+.fa-camera{
+  position:absolute;
+  padding-top: 50px;
+  padding-right: 90px;
+}
+.colors{
+  background-color: #7149C6;
+}

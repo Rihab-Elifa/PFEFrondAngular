@@ -1,0 +1,24 @@
+<div class="container-fluid red">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label class="name" for="name">name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="categorie.name"
+            name="name"
+            placeholder="Saisissez Categorie"
+          />
+        </div>
+        
+      <button (click)="saveTutorial()" class="btn btn-success ">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+        <h4>Categorie was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      </div>
+    </div>
+    </div>

@@ -1,0 +1,87 @@
+<div class="containr-fluid color">
+    <h1>welcome !! Free shopping </h1>
+</div>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-house">Navbar</i></a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex search" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline mm" type="submit">Search</button>
+        </form>
+        <i class="fa-solid fa-heart"></i>
+        <a routerLink="/login"><i class="fa-solid fa-user"></i></a>
+        <a routerLink="cart"><i class="fa-solid fa-cart-shopping">
+          <span class="position-absolute  translate-middle p-2 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+          </span>
+        </i></a>
+
+      </div>
+
+    </div>
+  </nav>
+
+ <section class="image">
+    <div class="hstack gap-8 local">
+        <input class="form-control me-auto" type="text" placeholder="Add your location..." aria-label="Add your item here...">
+        <button type="button" class="btn btn-danger"><i class="fas fa-search"></i></button>
+        <div class="vr"></div>
+    
+      </div>
+ </section>
+<!--Liste des produit Local-->
+<div >
+<h2 >Liste des produits local</h2>
+
+</div>
+<section class="class">
+  <div class="card" style="width: 18rem;" *ngFor="let p of  Local">
+    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+    <div class="card-body">
+      <p>Name:{{p.nom}}</p>
+      <p>Pix:{{p.prix}}</p>
+      
+     
+     
+      <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
+    </div>
+  </div>
+   
+</section>
+
+ <!--List des produits-->
+ <h2>Liste du produit</h2>
+
+
+<section class="class1">
+  <div class="card1" style="width: 18rem;" *ngFor="let p of  article">
+    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+    <div class="card-body">
+      <p>Name:{{p.nom}}</p>
+      <p>Pix:{{p.prix}}</p>
+      
+     
+     
+      <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
+    </div>
+  </div>
+   
+</section>
+
+
+ 

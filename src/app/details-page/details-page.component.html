@@ -1,0 +1,40 @@
+<div>
+  <h2>Page Details</h2>
+  <div class="container"><img class="image" [src]="'data:image/jpeg;base64,'+page2.imageProfile.bytes"></div>
+  <div class="container relative"><img  [src]="'data:image/jpeg;base64,'+page2.imageCouverture.bytes" class="avatar" (click)="click()"><i class="fa-solid fa-camera" style="color: #ab0af5;"></i></div>
+  <input  *ngIf="b"type="file" class="form-control" id="image"  (change)="onProfilImageSelected($event)" name="image"><button *ngIf="b "(click)="changePhoto(page2.id)">Change</button>
+  <p>title:{{page2.title}}</p>
+  <p>adresse:{{page2.address}}</p>
+  <p>email:{{page2.email}}</p>
+  <p>city:{{page2.city}}</p>
+  <p>phone:{{page2.phone}}</p>
+  <p>postalCode:{{page2.postalCode}}</p>
+  <p> activity{{page2.activity}}</p>
+
+
+  <h2>Liste du produit</h2>
+
+  <section class="class">
+    <div class="card" style="width: 18rem;" *ngFor="let p of  article">
+      <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+      <div class="card-body">
+        <p>Name:{{p.nom}}</p>
+        <p>Pix:{{p.prix}}</p>
+        <p>Stock:{{p.nbstock}}</p>
+       
+       
+        <a href="#" class="btn btn-danger">Go somewhere</a>
+      </div>
+    </div>
+     
+  </section>
+
+
+
+
+   
+
+   
+
+
+</div>

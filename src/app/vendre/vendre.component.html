@@ -1,0 +1,64 @@
+<!-- ajout-vente.component.html -->
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7dlQFsGlTpnPxfGEBk3XrxlYzaq7yWrQ&region=TN&language=fr&callback=initMap"></script>
+
+<div class="container">
+    <h1>Ajouter une page de vente</h1>
+    <form (ngSubmit)="ajouterVente()">
+      <div class="form-group">
+        <label for="id">ID :</label>
+        <input type="text" class="form-control" id="id" [(ngModel)]="id" name="id" required>
+      </div>
+      <div class="form-group">
+        <label for="title">Titre :</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="page.title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address :</label>
+        <textarea class="form-control" id="address" [(ngModel)]="page.address" name="address" required></textarea>
+      </div>
+
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" class="form-control" id="phone" [(ngModel)]="page.phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="postalCode">Code postale:</label>
+        <input type="text" class="form-control" id="postalCode" [(ngModel)]="page.postalCode" name="postalCode" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="page.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="city">Activity:</label>
+
+        <select class="form-select" id="activity" [(ngModel)]="page.activity" #activity (change)="changeActivity()"  name="activity" required>
+          <option *ngFor="let a of listeAct" [ngValue]="a">{{ a }}</option>
+        </select>
+       <!-- gps-->
+        
+      <app-maps *ngIf="showlocation" (newItemEvent)="showOutput($event)"></app-maps>
+      </div>
+      <div class="form-group">
+        <label for="city">Region:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="page.region" name="region" required>
+          <option *ngFor="let tutorial of listRegion"  [ngValue]="tutorial">{{ tutorial }} 
+          
+          
+        </option>
+        </select>
+      </div>
+      
+      
+      <div class="form-group">
+        <label for="imageProfil">Image de profil :</label>
+        <input type="file" class="form-control" id="imageProfil" (change)="onProfilImageSelected($event)" name="imageProfil">
+      </div>
+      <div class="form-group">
+        <label for="imageCouverture">Image de couverture :</label>
+        <input type="file" class="form-control" id="imageCouverture" (change)="onCouvertureImageSelected($event)" name="imageCouverture">
+      </div>
+      <button type="submit" class="btn btn-danger">Ajouter la page de vente</button>
+    </form>
+  </div>

@@ -1,0 +1,18 @@
+<h2>Liste du Articlet</h2>
+
+
+<section class="class">
+  <div class="card" style="width: 18rem;" *ngFor="let p of  article">
+    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+    <div class="card-body">
+      <p>Name:{{p.nom}}</p>
+      <p>Pix:{{p.prix}}</p>
+      <p>Stock:{{p.nbstock}}</p>
+     
+     
+      <a class="btn btn-danger" routerLink="DetailArt/{{p.id}}">Details</a>
+      <a  class="btn btn-danger" (click)="supprimer(p.id)">supprimer</a>
+    </div>
+  </div>
+   
+</section>

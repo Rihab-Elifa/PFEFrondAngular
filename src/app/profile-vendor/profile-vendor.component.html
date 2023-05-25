@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link"routerLink="myPage/{{user.id}}">Liste page</a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="vendor">Create page</a>
+      </li>
+   
+    <li class="nav-item">
+        <a class="nav-link" routerLink="UpdatePage/{{user.id}}">Update page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="addP">Add Produit</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="UpdateArticle"> UpdateArticle</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="ListeArticle"> ListeArticle</a>
+    </li>
+  </ul>
+  <div class="container">
+    <router-outlet></router-outlet>
+   
+   </div>

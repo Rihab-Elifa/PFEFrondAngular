@@ -1,0 +1,42 @@
+
+  
+  <ng-template #editable>
+    <div *ngIf="currentT.id" class="edit-form">
+      <h4>Categorie</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="currentT.name"
+            name="name"
+          />
+        </div>
+      
+       
+      </form>
+  
+      
+     
+  
+      <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentT.id">
+      <br />
+      <p>Cannot access this Tutorial...</p>
+    </div>
+  </ng-template>

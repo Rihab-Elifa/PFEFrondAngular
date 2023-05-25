@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title-group class="page">
+      <mat-card-title >
+        les pages
+      </mat-card-title>
+    </mat-card-title-group>
+    <mat-spinner  *ngIf="loading$ | async"></mat-spinner>
+    <mat-nav-list *ngIf="vendors$ | async as vendors">
+      <a *ngFor="let page of vendors" mat-list-item [routerLink]="page.id.toString()">
+             <!--<img [src]="page.imageProfile" [alt]="page.title" matListAvatar>-->
+             <!--<div class="container"><img [src]="'data:image/jpeg;base64,'+page.imageProfile.bytes" [alt]="page.title" matListAvatar></div>-->
+             
+             
+        <h3 matLine>{{ page.title}} </h3>
+       
+      </a>
+    </mat-nav-list>
+  </mat-card>
+
+
+
+
+

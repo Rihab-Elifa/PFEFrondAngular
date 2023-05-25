@@ -1,0 +1,20 @@
+<div class="color"><h1>Liste des pages </h1></div>
+
+<div class="container text-center">
+  <div *ngFor="let tutorial of pages" class="row">
+    <div class="col">
+      {{ tutorial.title }}
+    </div>
+    <div class="col">
+      <button class="btn  btn-danger " ><a routerLink="detailP/{{tutorial.id}}">
+          Details</a>
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn  btn-secondary " (click)="remove(tutorial.id)">
+        Delete Page
+      </button>
+    </div>
+  </div>
+</div>
+
