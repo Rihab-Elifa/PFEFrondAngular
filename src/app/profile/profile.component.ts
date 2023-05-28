@@ -8,7 +8,8 @@ import { AuthService } from '../_services/auth.service';
 import { EmailValidator } from '@angular/forms';
 import { VendorServicesService } from '../_services/vendor-services.service';
 import { page2 } from '../Models/page2';
- 
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

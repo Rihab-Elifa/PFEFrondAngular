@@ -53,6 +53,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartComponent } from './chart/chart.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
   
@@ -80,11 +86,18 @@ import { ChartComponent } from './chart/chart.component';
     CommanderComponent,
     DetailCommandeComponent,
     ChartComponent
+  
+   
   ],
   imports: [
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatFormFieldModule ,
+    MatInputModule ,
     HttpClientModule,
     MatListModule,
     MatSlideToggleModule,

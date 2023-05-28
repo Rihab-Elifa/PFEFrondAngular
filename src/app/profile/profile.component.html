@@ -1,4 +1,23 @@
-   
+<p>
+  <mat-toolbar class="nav head">
+   <button mat-icon-button class="example-icon"    aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Profile</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+   <mat-icon>share</mat-icon>
+ </button>
+
+ <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <mat-icon><a  (click)="logout()">logout</a></mat-icon>
+</button>
+ 
+</mat-toolbar>
+</p>
    <ul class="nav flex-column">
     
     <li class="nav-item">
@@ -12,10 +31,37 @@
       <a class="nav-link" (click)="logout()">Log out</a>
     </li>
   </ul>
-<div class="div"><h2>{{user.email}}</h2>
-<h1>Welcome {{subString}}</h1>
-<h2> Name:{{user.firstName}}</h2>
-<h2>phone:{{user.phone}}</h2>
+ <div class="row">
+  <div class="col-4">
+    <mat-card class="crd1">
+      <mat-card-content><h2>{{user.email}}</h2>
+        <h1>Welcome {{subString}}</h1>
+        <h2> Name:{{user.firstName}}</h2>
+        <h2>phone:{{user.phone}}</h2></mat-card-content>
+        <button mat-fab extended color="warn">
+          <mat-icon>favorite</mat-icon>
+          <a class="nav-link" routerLink="vendor">Create page</a>
+        </button>
+        <button mat-fab extended class="colorrr">
+          <mat-icon>favorite</mat-icon>
+          Partner
+        </button>
+    </mat-card>
+  </div>
+  <div class="col-8">
+    <mat-card>
+      <mat-card-content>
+        <div class="container">
+          <router-outlet></router-outlet>
+         
+         </div>
+      </mat-card-content>
+      </mat-card>
+
+  </div>
+ </div>
+  
+<div class="div">
 <h2 *ngFor="let p of user.ppg">pages 1:{{p.id}}</h2>
 <button class="btn btn-danger btn-block" (onclick)="click()">
   Liste user
@@ -32,9 +78,5 @@
   MyPages</a>
 </button>
 
-
-</div>
-<div class="container">
- <router-outlet></router-outlet>
 
 </div>

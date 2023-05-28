@@ -30,6 +30,7 @@ export class VendorServicesService {
   private apiUrl11= 'http://localhost:8085/article/articlesLocal';
   private apiUrl12= 'http://localhost:8085/pages/editPage';
   private apiUrl13= 'http://localhost:8085/pages/findAllPages';
+  private apiUrl14= 'http://localhost:8085/pages/PagesBycategories';
 
   
   
@@ -88,7 +89,10 @@ ajouterPage(id: string, pagesDto: any, imageProfile: File, imageCouverture: File
  getAllPages(): Observable<page2[]> {
   return this.http.get<page2[]>(this.apiUrl13);
 }
-
+//liste page by categorie
+getAllPageByCat(cat:any): Observable<page2[]> {
+  return this.http.get<page2[]>(`${this.apiUrl14}/${cat}`);
+}
 //detail de page
 getPage(id:string|null):Observable<page2>{
   return this.http.get<page2>(`${this.apiUrl2}/${id}`);

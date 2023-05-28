@@ -42,10 +42,10 @@ export class ChartComponent implements OnInit {
     
     
     for(let i=0; i<this.use.length ;i++){
-      this.vendor.getAllP("643870dc41d56d566658d5af").subscribe({
+      this.vendor.getAllP(this.use[i].id).subscribe({
         next: (page) => {
      
-        this.PageUser.push(i++);
+        this.PageUser.push(page.length);
         console.log("length",Object.keys(page).length)
    
 
@@ -86,6 +86,8 @@ renderChart(use:any,vendor:any,type:any,id:any){
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       scales: {
         y: {
           beginAtZero: true

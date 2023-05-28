@@ -38,3 +38,16 @@
    
     background-color: #efa970; /* Couleur d'arrière-plan au survol */
   }
+  .nav{
+    background:#efa970;
+    color:white;
+    width:100%
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .tab-livreur tr:hover{
+    background:#efa970;
+    color:black;
+  }
