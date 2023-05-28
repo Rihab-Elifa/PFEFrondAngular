@@ -3,9 +3,9 @@
      
       <div class="sidebar">
         <mat-list>
-          <mat-list-item><h2 class="text-info"><i class="fa-sharp fa-solid fa-house"></i>Dashbord</h2></mat-list-item>
-          <mat-list-item><h2   class="text-info"><i class="fa-sharp fa-solid fa-bookmark"></i>Livreur</h2></mat-list-item>
-          <mat-list-item><h2   class="text-info"><i  class="fa-sharp fa-solid fa-bookmark"></i>vendeur</h2></mat-list-item>
+          <mat-list-item><h2 class="text"><i class="fa-sharp fa-solid fa-house"></i>Dashbord</h2></mat-list-item>
+          <mat-list-item><h2   class="text"><i class="fa-sharp fa-solid fa-bookmark"></i>Livreur</h2></mat-list-item>
+          <mat-list-item><h2   class="text"><i  class="fa-sharp fa-solid fa-bookmark"></i>vendeur</h2></mat-list-item>
          </mat-list>
       </div>
     
@@ -40,41 +40,60 @@
        <!-- Sale & Revenue Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
-            <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-info"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today Sale</p>
-                        <h6 class="mb-0">$1234</h6>
+           
+                    <div class="col-sm-6 col-xl-3">
+                        <mat-card >
+                            <mat-card-content>
+                        <div class=" rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Today Sale</p>
+                                <h6 class="mb-0">$1234</h6>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
                     </div>
-                </div>
-            </div>
+               
+           
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-bar fa-3x text-info"></i>
+                <mat-card >
+                    <mat-card-content>
+                <div class=" rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-bar fa-3x text"></i>
                     <div class="ms-3">
                         <p class="mb-2">Total Sale</p>
                         <h6 class="mb-0">$1234</h6>
                     </div>
                 </div>
+                </mat-card-content>
+                </mat-card>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-area fa-3x text-info"></i>
+                <mat-card >
+                    <mat-card-content>
+                <div class="rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-area fa-3x text"></i>
                     <div class="ms-3">
                         <p class="mb-2">Today Revenue</p>
                         <h6 class="mb-0">$1234</h6>
                     </div>
                 </div>
+                </mat-card-content>
+                </mat-card>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-pie fa-3x text-info"></i>
+                <mat-card >
+                    <mat-card-content>
+                <div class=" rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-pie fa-3x text"></i>
                     <div class="ms-3">
                         <p class="mb-2">Total Revenue</p>
                         <h6 class="mb-0">$1234</h6>
                     </div>
                 </div>
+                </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
@@ -113,13 +132,15 @@
       
 <!-- Recent Sales Start -->
 <div class="container-fluid pt-4 px-4">
-  <div class="bg-secondary text-center rounded p-4">
+    <mat-card >
+        <mat-card-content>
+  <div class=" text-center rounded p-4">
       <div class="d-flex align-items-center justify-content-between mb-4">
           <h2 class="mb-0">Liste des vendeurs</h2>
           <a href="">Show All</a>
       </div>
       <div class="table-responsive">
-          <table class="table text-start align-middle table-bordered table-hover mb-0">
+          <table class="table text-start align-middle table-bordered table-hover mb-0 tab-vend">
               <thead>
                   <tr class="text-white">
                       <th scope="col"><input class="form-check-input" type="checkbox"></th>
@@ -142,7 +163,7 @@
                    
                      
                       <td>
-                        <a  class="btn btn-sm btn-info" (click)="detail(p.id)">
+                        <a  class="btn btn-sm Details" (click)="detail(p.id)">
                           Details</a></td>
                   </tr>
                   
@@ -153,18 +174,14 @@
           </table>
       </div>
   </div>
-   <!--chart -->
-   <div class="col-lg-6">
-    <p></p>
-    <h2>Bar Chart</h2>
-    <canvas id="barchart"></canvas>
-</div>
-<!--end chart-->
+  </mat-card-content>
+  </mat-card>
+
 </div>
 <!-- Recent Sales End -->
    
   <!-- NOTE table livreur -->
-  <div class="mat-elevation-z8">
+  <div class="mat-elevation-z8 dash">
     <table class="tab-livreur"  mat-table [dataSource]="dataSource">
   
       <!-- Position Column -->
