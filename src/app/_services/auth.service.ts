@@ -5,6 +5,7 @@ import{HttpClient,HttpHeaders} from '@angular/common/http'
 import { Router } from '@angular/router';
 const AUTH_API = 'http://localhost:8085/api/auth/login';
 const AUTH_API2 = 'http://localhost:8085/api/auth/registerUser';
+const AUTH_API3 = 'http://localhost:8085/api/auth/registerDelivery';
 
 @Injectable({
   providedIn: 'root'
@@ -115,6 +116,10 @@ export class AuthService {
     localStorage.removeItem('currentUser')
     this.route.navigate(['/login'])
   }
+
+  //registrer livreur 
+  registerLivreur(livreur:any): Observable<any> {
+    return this.http.post(AUTH_API3,livreur)}
 
  
 

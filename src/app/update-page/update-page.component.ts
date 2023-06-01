@@ -7,6 +7,7 @@ import { Region } from '../Models/Region';
 import { activityy } from '../Models/activityy';
 import { page2 } from '../Models/page2';
 import { File } from '../Models/File';
+import { p } from '../Models/p';
 
 @Component({
   selector: 'app-update-page',
@@ -14,7 +15,17 @@ import { File } from '../Models/File';
   styleUrls: ['./update-page.component.scss']
 })
 export class UpdatePageComponent  implements OnInit{
-  @Input() page:any;
+  page:p={
+    id: '',
+    title: '',
+    address: '',
+    email: '',
+    phone: 0,
+ 
+    postalCode: 0,
+   
+
+  }
    id!:string|null;
  
   constructor(private vendorSer: VendorServicesService,
@@ -23,7 +34,16 @@ export class UpdatePageComponent  implements OnInit{
    
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
+    let id=this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.vendorSer.getPage(id).subscribe({
+      next: (data) => {
+       this.page=data;
+       console.log(data);
+
+      },
+      error: (e) => console.error(e)
+    });
 
     
     
@@ -38,7 +58,6 @@ export class UpdatePageComponent  implements OnInit{
     this.vendorSer.updatePage(this.id,this.page)
     .subscribe({
       next: (data) => {
-        
           console.log('page updated successfully:', data);
         },
         error:(e)=>console.error(e)

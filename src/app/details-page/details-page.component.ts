@@ -60,6 +60,10 @@ export class DetailsPageComponent implements OnInit {
     })
 
    }
+   supprimer(id:string):void{
+    this.vendorServ.deleteArticle(id).subscribe(() => {
+      // code à exécuter après la suppression de la page
+    });}
     
   }
   //how get detail page image +data angular 15?

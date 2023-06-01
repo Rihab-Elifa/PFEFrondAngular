@@ -26,6 +26,7 @@ import { TableListComponent } from './table-list/table-list.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { SideBarDComponent } from './side-bar-d/side-bar-d.component';
 import { ChartComponent } from './chart/chart.component';
+import { LivreurComponent } from './livreur/livreur.component';
 
 
 const routes: Routes = [{path:'register',component:RegisterComponent},
@@ -44,18 +45,28 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
   
   
 ]},
+{path:'profile/livreur',component:LivreurComponent},
 
 {path:'profile/profile-vendor',component:ProfileVendorComponent,children:[
   
 
   {path:'myPage/:id',component:MyPagesComponent},
-  {path:'myPage/:id/detailP/:id',component:DetailsPageComponent},
+  {path:'myPage/:id/UpdatePage/:id',component:UpdatePageComponent},
+  {path:'myPage/:id/detailP/:id',component:DetailsPageComponent,children:[
+   // {path:'DetailArt/:id',component:ArticleDetailComponent},
+  
+  ]},
   {path:'vendor',component:VendreComponent},
   {path:'Update/:id',component:UpdatePageComponent},
+  
   {path:'addP',component:AddProduitComponent},
   {path:'UpdateArticle',component:UpdateArticleComponent},
   {path:'ListeArticle',component:AllArticleComponent},
-  {path:'ListeArticle/DetailArt/:id',component:ArticleDetailComponent},
+  //{path:'ListeArticle/DetailArt/:id',component:ArticleDetailComponent},
+  {path:'myPage/:id/detailP/:id/DetailArt/:id',component:ArticleDetailComponent},
+  {path:'myPage/:id/detailP/:id/UpdateArticle/:id',component:UpdateArticleComponent},
+  {path:'myPage/:id/detailP/:id/addP',component:AddProduitComponent},
+
   
   
  
@@ -75,10 +86,13 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
 {path:'home/cart',component:CartComponent},
 {path:'home/cart/commander',component:CommanderComponent},
 {path:'tabless',component:TableListComponent},
-{path:'sidebar',component:SideBarDComponent},
+{path:'sidebar',component:SideBarDComponent,children:[
+  {path:'chart',component:ChartComponent},
+]},
 {path:'dashbord',component:DashbordComponent},
 {path:'chart',component:ChartComponent},
 {path:'detailP/:id',component:DetailsPageComponent},
+
 
 ];
 

@@ -1,5 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { LivreurComponent } from './livreur/livreur.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,7 +59,16 @@ import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarModule,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
+import {MatSelectModule} from '@angular/material/select';
+import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import { MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
   
@@ -85,11 +95,18 @@ import {MatButtonModule} from '@angular/material/button';
     CartComponent,
     CommanderComponent,
     DetailCommandeComponent,
-    ChartComponent
+    ChartComponent,
+    LivreurComponent,
+  
   
    
   ],
   imports: [
+ 
+     MatDialogModule,
+  
+    MatSnackBarModule,
+    MatSelectModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

@@ -8,6 +8,9 @@ const baseURL3="http://localhost:8085/User";
 const baseURL4="http://localhost:8085/User/email";
 
 const baseURL2 ="http://localhost:8085/User/listeUser";
+const baseURL5="http://localhost:8085/User/todayRevenue";
+const baseURL6="http://localhost:8085/User/weekRevenue";
+const baseURL7 ="http://localhost:8085/User/monthRevenue";
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +43,16 @@ export class UserServiceService {
   
     return this.http.put<String>(baseURL, user);
   }
-
+  //today revenue
+  todayRevenue(id:String|null ): Observable<any> {
+    return this.http.get(`${baseURL5}/${id}`);
+  }
+  //week revenue
+  weekRevenue(id:String|null ): Observable<any> {
+    return this.http.get(`${baseURL6}/${id}`);
+  }
+  //month revenue
+  monthRevenue(id:String|null ): Observable<any> {
+    return this.http.get(`${baseURL7}/${id}`);
+  }
 }

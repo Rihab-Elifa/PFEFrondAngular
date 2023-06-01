@@ -34,6 +34,9 @@
  <div class="row">
   <div class="col-4">
     <mat-card class="crd1">
+      <mat-card-header>   
+          <img  [src]="'data:image/jpeg;base64,'+user.imageProfile.bytes" class="avatar"  >
+      </mat-card-header>
       <mat-card-content><h2>{{user.email}}</h2>
         <h1>Welcome {{subString}}</h1>
         <h2> Name:{{user.firstName}}</h2>
@@ -44,7 +47,7 @@
         </button>
         <button mat-fab extended class="colorrr">
           <mat-icon>favorite</mat-icon>
-          Partner
+          <a class="nav-link" routerLink="livreur">Partner</a>
         </button>
     </mat-card>
   </div>

@@ -7,16 +7,23 @@ import { PanierService } from '../_services/panier.service';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { NotificationService } from '../_services/notification.service';
 import { DeviceDto } from '../Models/DeviceDto';
-;
-
-
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarModule,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  
 })
 export class HomeComponent  implements OnInit{
- 
+ alert=false;
   DeviceDto!:DeviceDto;
   Aa:any=["FOOD","PATISSERIE","MAGAZINE"]
   article?:Article[];
@@ -27,7 +34,9 @@ export class HomeComponent  implements OnInit{
   products:any[]=[];
   t!:any;
   selectedActivity:Activity= Activity.FOOD;
-  constructor(private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
+  durationInSeconds = 5;
+  constructor(private _snackBar: MatSnackBar,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
+  
   ngOnInit(): void {
     this.vendorServ.getAllArticle().subscribe({
       next:(data)=>{
@@ -216,7 +225,11 @@ this.products.push(product)
   
   localStorage.setItem('cart_items', JSON.stringify(this.products));
 this.products=[this.panierSer.getProduct()];
+this.alert=true;
+this._snackBar.open("add successfly", "#");
 
 }
+
+
 
 }

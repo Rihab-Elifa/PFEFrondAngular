@@ -1,6 +1,12 @@
 <div class="containr-fluid color">
     <h1>welcome !! Free shopping </h1>
 </div>
+<!--NOTE
+  <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+-->
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,8 +63,11 @@
       <p>Pix:{{p.prix}}</p>
       
      
-     
+<button   mat-stroked-button ><a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a></button>
+     <!--
       <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
+     -->
+
     </div>
   </div>
    

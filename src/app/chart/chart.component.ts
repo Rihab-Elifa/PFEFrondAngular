@@ -14,75 +14,71 @@ Chart.register(...registerables);
 })
 export class ChartComponent implements OnInit {
   showFiller = false;
+  formattedDates!:any;
   constructor(private vendor:VendorServicesService,private user:UserServiceService) { }
    PageUser!:any[];
-   PageUser2:any[]=[];
+revenue!:any;
+rev:any[]=[];
+date:any[]=[];
    use:user[]=[];
    use2: user[] = [];
    nbre:any[]=[];
   ngOnInit() {
-    this.user.getUser()
+    this.user.weekRevenue('647860060826046450069a35')
     .subscribe({
       next: (data) => {
-        this.use=data;
+        this.revenue=data;
         console.log(data);
-        for(let i=0; i<data.length ;i++){
-          this.use2.push(data[i].firstName);
+        this.rev=Array.from({ length: data.length }, (_, i) => data[i].revenue);
+        console.log(this.rev); // [10000, 6000, 10000]
         
-          
-         
-  
-        }
+        this.date=Array.from({ length: data.length }, (_, i) => data[i].date);
+        console.log(this.date); 
+        
+      // Formater les dates au format 'DD/MM'
+ this.formattedDates = this.date.map(date => {
+  const [year, month, day] = date.split('-');
+  return `${day}/${month}`;
+});
        
+    this.renderChart(this.date,this.rev,'bar','barchart');
+    this.renderChart(this.date,this.rev,'pie','piechart');
+   
       },
       error: (e) => console.error(e)
     });
+
+
     
    
     
-    
-    for(let i=0; i<this.use.length ;i++){
-      this.vendor.getAllP(this.use[i].id).subscribe({
-        next: (page) => {
-     
-        this.PageUser.push(page.length);
-        console.log("length",Object.keys(page).length)
-   
 
-        console.log("page",page)
-        this.PageUser2=page;
-        }
-      });
-
-    }
-
-    this.renderChart(this.use2,this.PageUser,'bar','barchart');
-    this.renderChart(this.use2,this.PageUser,'pie','piechart');
-   
 
    console.log("users",this.use2)
     
   console.log("ls pages de users",this.PageUser)
- 
-   console.log("les pages",this.PageUser2)
+
 
   }
-renderChart(use:any,vendor:any,type:any,id:any){
+renderChart(date:any[],rev:any[],type:any,id:any){
+  console.log("date",date)
+  console.log("rev",rev)
   const myChart = new Chart(id, {
     type: type,
     data: {
-      labels:use,
+      labels:date,
       datasets: [{
         label: '# of Votes',
-       data: [12, 19, 3, 5],
+       data:  rev,
 
-      backgroundColor: [
+       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
         'rgba(255, 206, 86, 0.2)',
         'rgba(75, 192, 192, 0.2)',
-      
-      ],
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ]
       }]
     },
     options: {

@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit  {
   pages!:page2[];
   @Input()  users!:user[];
   
-  user!:user;
+  user!:any;
   email!:string;
   subString!:string;
   router: any;

@@ -10,7 +10,7 @@ import { UserServiceService } from '../_services/user-service.service';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { user } from '../Models/user';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { Router } from '@angular/router';
 import { Activity } from 'pfe-frontend/src/app/Models/Activity';
@@ -35,7 +35,7 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
   act2:any[]=[];
   list:any[]=[];
   
-  constructor(private vendor:VendorServicesService,private router:Router,private user:UserServiceService) { }
+  constructor(private route:ActivatedRoute,private vendor:VendorServicesService,private router:Router,private user:UserServiceService) { }
   
   public type: ChartType = 'bar';
 
