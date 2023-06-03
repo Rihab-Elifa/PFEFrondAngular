@@ -1,23 +1,4 @@
-<mat-card>
-    <mat-card-title-group class="page">
-      <mat-card-title >
-        tous les pages
-      </mat-card-title>
-    </mat-card-title-group>
-    
-    <mat-spinner class="spinner-color"  *ngIf="loading$ | async"></mat-spinner>
-    <mat-nav-list *ngIf="vendors$ | async as vendors">
-      <a *ngFor="let page of vendors" mat-list-item >
-             <!--<img [src]="page.imageProfile" [alt]="page.title" matListAvatar>-->
-             <!--<div class="container"><img [src]="'data:image/jpeg;base64,'+page.imageProfile.bytes" [alt]="page.title" matListAvatar></div>-->
-             
-             
-        <h3 matLine>{{ page.title}} </h3>
-       
-      </a>
-    </mat-nav-list>
-  </mat-card>
-  <mat-form-field>
+<mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
@@ -31,15 +12,15 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> title </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    <ng-container matColumnDef="FirstName">
+      <th mat-header-cell *matHeaderCellDef> FirstName </th>
+      <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="activity">
-      <th mat-header-cell *matHeaderCellDef> activity </th>
-      <td mat-cell *matCellDef="let element"> {{element.activity}} </td>
+    <ng-container matColumnDef="LastName">
+      <th mat-header-cell *matHeaderCellDef> LastName </th>
+      <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
@@ -48,9 +29,9 @@
       <td mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
       <!-- Weight Column -->
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef> address </th>
-        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef> role </th>
+        <td mat-cell *matCellDef="let element"> {{element.role}} </td>
       </ng-container>
         <!-- Weight Column -->
     <ng-container matColumnDef="phone">
@@ -67,8 +48,4 @@
                  aria-label="Select page of periodic elements">
   </mat-paginator>
 </div>
-
-
-
-
 

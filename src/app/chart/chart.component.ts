@@ -1,18 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output, EventEmitter} from '@angular/core';
 import { Chart, registerables } from 'chart.js'
 import { VendorServicesService } from '../_services/vendor-services.service';
 import { UserServiceService } from '../_services/user-service.service';
 import { user } from '../Models/user';
 import { page2 } from '../Models/page2';
 Chart.register(...registerables);
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
   
+
+
+  
 })
 export class ChartComponent implements OnInit {
+  @Output() newItemEvent = new EventEmitter<string>();
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
   showFiller = false;
   formattedDates!:any;
   constructor(private vendor:VendorServicesService,private user:UserServiceService) { }

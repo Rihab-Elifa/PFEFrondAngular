@@ -10,10 +10,17 @@ img{
   image-rendering: crisp-edges;
 }
 .page{
-  background-color: #FC2947;
+
   padding-top: 50px;
   width: 100%;
   text-align: center;
   padding-left: 800px;
   font-size: x-large;
+}
+.spinner-color{
+  color:red;
+}
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
 }

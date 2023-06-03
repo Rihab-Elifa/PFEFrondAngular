@@ -17,14 +17,13 @@ import { Activity } from 'pfe-frontend/src/app/Models/Activity';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ChartComponent } from '../chart/chart.component';
+import{SidbardModule} from'../sidbard/sidbard.module';
 Chart.register(...registerables);
 @Component({
   selector: 'app-side-bar-d',
   templateUrl: './side-bar-d.component.html',
-  styleUrls: ['./side-bar-d.component.scss'],
-  standalone: true,
-  imports: [MatSidenavModule,MatCardModule,MatListModule,CommonModule,MatToolbarModule, MatButtonModule, MatIconModule,MatTableModule, MatPaginatorModule],
-
+  styleUrls: ['./side-bar-d.component.scss']
 
 })
 
@@ -34,8 +33,10 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
   activityy!:Activity;
   act2:any[]=[];
   list:any[]=[];
+  totalSales:any;
+  selectedMenuItem: string = 'dashboard';
   
-  constructor(private route:ActivatedRoute,private vendor:VendorServicesService,private router:Router,private user:UserServiceService) { }
+  constructor(private route:ActivatedRoute,private vendor:VendorServicesService,private router:Router,private user:UserServiceService,private routerM:RouterModule) { }
   
   public type: ChartType = 'bar';
 
@@ -83,6 +84,16 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
  
 
   ngOnInit() {
+    this.user.TotaleSales()
+    .subscribe({
+      next: (data) => {
+        this.totalSales=data;
+        console.log(data);
+     
+       
+      },
+      error: (e) => console.error(e)
+    });
   
     
     this.vendor.getAllPages()

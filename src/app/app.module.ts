@@ -69,9 +69,16 @@ import {
 import {MatSelectModule} from '@angular/material/select';
 import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { MatDialogModule} from '@angular/material/dialog';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import { SideBarDComponent } from './side-bar-d/side-bar-d.component';
+import { AllVendeurComponent } from './all-vendeur/all-vendeur.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+
 @NgModule({
   declarations: [
-  
+    ChartComponent,
     AppComponent,
     LoginComponent,
     RegisterComponent,
@@ -95,14 +102,20 @@ import { MatDialogModule} from '@angular/material/dialog';
     CartComponent,
     CommanderComponent,
     DetailCommandeComponent,
-    ChartComponent,
+   
     LivreurComponent,
+        AllVendeurComponent,
+        SideBarDComponent,
+        AllUsersComponent ,
   
   
    
   ],
   imports: [
- 
+   
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
      MatDialogModule,
   
     MatSnackBarModule,

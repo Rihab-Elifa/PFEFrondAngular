@@ -50,29 +50,33 @@
     
       </div>
  </section>
-<!--Liste des produit Local-->
+<div class="container-fluid">
+  <div class="row">
+    <!--Liste des produit Local-->
 <div >
-<h2 >Liste des produits local</h2>
-
-</div>
-<section class="class">
-  <div class="card" style="width: 18rem;" *ngFor="let p of  Local">
-    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
-    <div class="card-body">
-      <p>Name:{{p.nom}}</p>
-      <p>Pix:{{p.prix}}</p>
-      
-     
-<button   mat-stroked-button ><a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a></button>
-     <!--
-      <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
-     -->
-
-    </div>
+  <h2 >Liste des produits local</h2>
+  
   </div>
-   
-</section>
+  <section class="class">
+    <div class="card" style="width: 18rem;" *ngFor="let p of  Local">
+      <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+      <div class="card-body">
+        <p>Name:{{p.nom}}</p>
+        <p>Pix:{{p.prix}}</p>
+        
+       
+  <button   mat-stroked-button ><a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a></button>
+       <!--
+        <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
+       -->
+  
+      </div>
+    </div>
+     
+  </section>
+  </div>
 
+<div class="row">
  <!--List des produits-->
  <h2>Liste du produit</h2>
 
@@ -91,6 +95,7 @@
   </div>
    
 </section>
-
+</div>
+</div>
 
  

@@ -1,11 +1,19 @@
+
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
      
       <div class="sidebar">
         <mat-list>
-          <mat-list-item><h2 class="text"><i class="fa-sharp fa-solid fa-house"></i>Dashbord</h2></mat-list-item>
-          <mat-list-item><h2   class="text"><i class="fa-sharp fa-solid fa-bookmark"></i>Livreur</h2></mat-list-item>
-          <mat-list-item><h2   class="text"><i  class="fa-sharp fa-solid fa-bookmark"></i>vendeur</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'dashboard'"><h2 class="text"><mat-icon class="mat-icon-24">dashboard</mat-icon>Dashbord</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Users'"><h2 class="text"><mat-icon class="mat-icon-24">group</mat-icon>Users</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Vendeur'"><h2   class="text"><mat-icon class="mat-icon-24">storefront</mat-icon>Vendeur</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Livreur'"><h2   class="text"><mat-icon class="mat-icon-24">directions_run</mat-icon>Livreur</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'commande'"><h2   class="text"><mat-icon class="mat-icon-24">shopping_cart</mat-icon>commande</h2></mat-list-item>
+     
+          <mat-list-item (click)="selectedMenuItem = 'Admin Users'"><h2   class="text"><mat-icon class="mat-icon-24">group</mat-icon>Admin Users</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="text"><mat-icon class="mat-icon-24">edit</mat-icon>Edit</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'dashboard'"><h2   class="text"><mat-icon class="mat-icon-24">logout</mat-icon>deconnecté</h2></mat-list-item>
+          
          </mat-list>
       </div>
     
@@ -14,7 +22,7 @@
      
     </mat-drawer>
   
-    <div class="example-sidenav-content">
+    <div class="example-sidenav-content" *ngIf="selectedMenuItem === 'dashboard'">
     
     <!-- NOTE  nav dashbord-->
     <p>
@@ -63,7 +71,7 @@
                     <i class="fa fa-chart-bar fa-3x text"></i>
                     <div class="ms-3">
                         <p class="mb-2">Total Sale</p>
-                        <h6 class="mb-0">$1234</h6>
+                        <h6 class="mb-0">${{totalSales}}</h6>
                     </div>
                 </div>
                 </mat-card-content>
@@ -97,39 +105,42 @@
             </div>
         </div>
     </div>
+    <app-chart></app-chart>
     <!-- Sale & Revenue End -->
       <!--end petite card-->
       
-         <!-- Sales Chart Start -->
+    <!--
+            
     <div class="container-fluid pt-4 px-4">
-      <div class="row g-4">
-          <div class="col-sm-12 col-xl-6">
-              <div class="text-center color rounded p-4">
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                      <h6 class="mb-0">Worldwide Sales</h6>
-                      <a href="">Show All</a>
-
-
-                      
-                  </div>
-                 
-                 
-              </div>
-          </div>
-          <div class="col-sm-12 col-xl-6">
-              <div class="text-center color rounded p-4">
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                      <h6 class="mb-0">Salse & Revenue</h6>
-                      <a href="">Show All</a>
-                  </div>
-                  
-                 
-          </div>
-      </div>
-  </div>
-  <!-- Sales Chart End -->
-  </div> 
-      
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="text-center color rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Worldwide Sales</h6>
+                        <a href="">Show All</a>
+  
+  
+                        
+                    </div>
+                   
+                   
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-6">
+                <div class="text-center color rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Salse & Revenue</h6>
+                        <a href="">Show All</a>
+                    </div>
+                    
+                   
+            </div>
+        </div>
+    </div>
+   
+    </div> 
+        
+    -->
 <!-- Recent Sales Start -->
 <div class="container-fluid pt-4 px-4">
     <mat-card >
@@ -219,7 +230,13 @@
   </div>
   <!-- NOTE end table -->
     </div>
- 
+    <app-list-vendor *ngIf="selectedMenuItem === 'Vendeur'"></app-list-vendor>
+    <app-all-users *ngIf="selectedMenuItem === 'Users'"></app-all-users>
   </mat-drawer-container>
-  <a class="nav-link" routerLink="chart">chart</a>
+
+  
+    <!-- Afficher le composant Dashboard ici -->
+   
+  
  
+ <router-outlet></router-outlet>
