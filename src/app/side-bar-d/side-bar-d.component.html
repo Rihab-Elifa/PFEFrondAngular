@@ -10,9 +10,10 @@
           <mat-list-item (click)="selectedMenuItem = 'Livreur'"><h2   class="text"><mat-icon class="mat-icon-24">directions_run</mat-icon>Livreur</h2></mat-list-item>
           <mat-list-item (click)="selectedMenuItem = 'commande'"><h2   class="text"><mat-icon class="mat-icon-24">shopping_cart</mat-icon>commande</h2></mat-list-item>
      
-          <mat-list-item (click)="selectedMenuItem = 'Admin Users'"><h2   class="text"><mat-icon class="mat-icon-24">group</mat-icon>Admin Users</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="text"><mat-icon class="mat-icon-24">edit</mat-icon>Edit</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'dashboard'"><h2   class="text"><mat-icon class="mat-icon-24">logout</mat-icon>deconnecté</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Admin'"><h2   class="text"><mat-icon class="mat-icon-24">group</mat-icon>Admin Users</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="text"><mat-icon class="mat-icon-24"> <a routerLink="update/{{us.id}}">
+            </a>edit</mat-icon>Edit</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'logout'"><h2   class="text"><mat-icon class="mat-icon-24">logout</mat-icon> <a  (click)="logout()">Log out</a></h2></mat-list-item>
           
          </mat-list>
       </div>
@@ -232,6 +233,15 @@
     </div>
     <app-list-vendor *ngIf="selectedMenuItem === 'Vendeur'"></app-list-vendor>
     <app-all-users *ngIf="selectedMenuItem === 'Users'"></app-all-users>
+    <app-order *ngIf="selectedMenuItem === 'commande'"></app-order>
+    <app-riders *ngIf="selectedMenuItem === 'Livreur'"></app-riders>
+    <app-admin-user *ngIf="selectedMenuItem === 'Admin'"></app-admin-user>
+    <div *ngIf="selectedMenuItem === 'Edit'" >
+        <br>
+        <br><br>
+
+       <router-outlet></router-outlet>
+    </div>
   </mat-drawer-container>
 
   

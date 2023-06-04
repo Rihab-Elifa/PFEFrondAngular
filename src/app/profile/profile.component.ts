@@ -85,7 +85,7 @@ export class ProfileComponent implements OnInit  {
   
 
   retrieveTutorials(): void {
-    this.userServ.getUser()
+   /* this.userServ.getUser()
       .subscribe({
         next: (data) => {
           this.users= data;
@@ -93,7 +93,7 @@ export class ProfileComponent implements OnInit  {
          
         },
         error: (e) => console.error(e)
-      });
+      });*/
   }
   click(){
     return this.users;

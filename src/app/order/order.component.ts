@@ -1,17 +1,16 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { UserServiceService } from '../_services/user-service.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { user2 } from '../Models/user2';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { CommandeService } from '../_services/commande.service';
 
 @Component({
-  selector: 'app-all-users',
-  templateUrl: './all-users.component.html',
-  styleUrls: ['./all-users.component.scss']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
-export class AllUsersComponent implements OnInit, AfterViewInit {
-  users:  any[] = [];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email','role','phone'];
+export class OrderComponent implements OnInit, AfterViewInit {
+  c!:any[];
+  displayedColumns: string[] = ['id', 'date', 'status', 'client','vendeur','livreur'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -19,31 +18,28 @@ export class AllUsersComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  
-  constructor(private user:UserServiceService){}
+ 
+  constructor(private commande:CommandeService){}
  // dataSource = new MatTableDataSource<Observable<page2[]>>(this.vendors$);
 
   ngOnInit(): void {
     
-    this.user.Client().subscribe({
+    this.commande.getAll().subscribe({
       next: (data) => {
-        this.users=data;
-        console.log('data',data);
-       console.log(data);
-       this.dataSource.data = data;
 
+        this.c= data;
+        console.log(data);
+        this.dataSource.data = data;
+       
+      
       },
       error: (e) => console.error(e)
     });
-      
+ 
+   
+
+  }
   
- 
-   
-
-   
-    }
-
- 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -52,6 +48,4 @@ export class AllUsersComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
-
 }

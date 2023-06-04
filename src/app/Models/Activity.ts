@@ -1,12 +1,12 @@
 export  enum  Activity{
- " RESTAURANTS",
- " MODE",
-  "BEAUTE",
-   "FOOD",
-  "ELECTRONIQUES",
-  "ELECTROMENAGER",
-  "SUPERETTE",
-"  SPORTS",
-  "PATISSERIE",
-
+  "RESTAURANTS",
+    "MODE",
+    "BEAUTE",
+     "FOOD",
+    "ELECTRONIQUES",
+    "ELECTROMENAGER",
+    "SUPERETTE",
+    "SPORTS",
+    "MAGAZINE",
+    "PATISSERIE",
 }

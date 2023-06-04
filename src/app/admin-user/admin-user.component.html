@@ -1,11 +1,8 @@
-<h1>Tous les vendeurs</h1>
+<h1>liste du admin</h1>
 <br>
 <br>
 <br>
-  <mat-spinner class="spinner-color"  *ngIf="loading$ | async"></mat-spinner>
- <div *ngIf="vendors$ | async as vendors">
-  
-  <mat-form-field>
+<mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
@@ -19,32 +16,37 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> title </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> firstName </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="activity">
-      <th mat-header-cell *matHeaderCellDef> activity </th>
-      <td mat-cell *matCellDef="let element"> {{element.activity}} </td>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> lastName </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> email </th>
+      <th mat-header-cell *matHeaderCellDef> email</th>
       <td mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
       <!-- Weight Column -->
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef> address </th>
-        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      <ng-container matColumnDef="vendeur">
+        <th mat-header-cell *matHeaderCellDef> vendeur</th>
+        <td mat-cell *matCellDef="let element"> {{element.idSender}} </td>
       </ng-container>
         <!-- Weight Column -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>role</th>
+      <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+    </ng-container>
     <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef> phone </th>
+      <th mat-header-cell *matHeaderCellDef>phone</th>
       <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
     </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -61,4 +63,3 @@
 
 
 
- </div>

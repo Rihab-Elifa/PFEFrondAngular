@@ -75,9 +75,13 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import { SideBarDComponent } from './side-bar-d/side-bar-d.component';
 import { AllVendeurComponent } from './all-vendeur/all-vendeur.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { OrderComponent } from './order/order.component';
+import { RidersComponent } from './riders/riders.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
 
 @NgModule({
   declarations: [
+    DialogOverviewExampleDialogComponent,
     ChartComponent,
     AppComponent,
     LoginComponent,
@@ -106,7 +110,10 @@ import { AllUsersComponent } from './all-users/all-users.component';
     LivreurComponent,
         AllVendeurComponent,
         SideBarDComponent,
-        AllUsersComponent ,
+        AllUsersComponent,
+        OrderComponent,
+        RidersComponent,
+        AdminUserComponent ,
   
   
    

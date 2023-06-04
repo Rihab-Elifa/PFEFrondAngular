@@ -88,6 +88,7 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
 {path:'tabless',component:TableListComponent},
 {path:'sidebar',component:SideBarDComponent,children:[
   {path:'chart',component:ChartComponent},
+  {path:'update/:id',component:UpdateUserComponent},
 
 ]},
 {path:'dashbord',component:DashbordComponent},

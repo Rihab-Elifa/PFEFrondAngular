@@ -1,3 +1,5 @@
+import { Activity } from "./Activity";
+import { pag } from "./pag";
 import { page2 } from "./page2";
 
 export class user2{
@@ -8,6 +10,7 @@ export class user2{
     lastName!:any;
     phone!:any;
     role!:any;
-    ppg!:page2[];
+    activity!:Activity
+    ppg!:pag[];
 
 }

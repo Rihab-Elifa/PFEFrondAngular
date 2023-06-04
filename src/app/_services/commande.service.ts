@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Commande } from '../Models/Commande';
 const AUTH_API = 'http://localhost:8085/api/auth/AjoutCommande';
 const AUTH_API1 = 'http://localhost:8085/api/auth/caisseNotif';
+const AUTH_API2 = 'http://localhost:8085/api/auth/getAll';
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +28,10 @@ export class CommandeService {
   getNotification(id:string|null):Observable<any>{
     return this.http.get(`${AUTH_API1}/${id}`);
   }
-  
+  //get All commande 
+
+   //get notification 
+   getAll():Observable<any>{
+    return this.http.get(AUTH_API2);
+  }
 }

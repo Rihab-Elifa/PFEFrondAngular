@@ -36,8 +36,16 @@ export class LoginComponent {
 
         const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
         const email = currentUser.email;
+        const role=currentUser.role;
         // retrieve other data as needed
-        this.route.navigate(['profile']);
+        // Vérifier si le rôle est administrateur
+        if (role.includes('ROLE_ADMIN')) {
+        // Rediriger vers la page admin
+        this.route.navigate(['sidebar']);
+        } else {
+          this.route.navigate(['profile']);
+        }
+       
   
         this.isLoginFailed = false;
         this.isLoggedIn = true;

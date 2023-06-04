@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ChartComponent } from '../chart/chart.component';
 import{SidbardModule} from'../sidbard/sidbard.module';
+import { AuthService } from '../_services/auth.service';
 Chart.register(...registerables);
 @Component({
   selector: 'app-side-bar-d',
@@ -35,8 +36,8 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
   list:any[]=[];
   totalSales:any;
   selectedMenuItem: string = 'dashboard';
-  
-  constructor(private route:ActivatedRoute,private vendor:VendorServicesService,private router:Router,private user:UserServiceService,private routerM:RouterModule) { }
+  us!:any;
+  constructor(private route:ActivatedRoute,private auth:AuthService ,private userServ:UserServiceService,private vendor:VendorServicesService,private router:Router,private user:UserServiceService,private routerM:RouterModule) { }
   
   public type: ChartType = 'bar';
 
@@ -84,6 +85,23 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
  
 
   ngOnInit() {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+    const email = currentUser.email;
+  
+  this.userServ.getUserByemail(email)
+  .subscribe({
+    next: (data) => {
+      this.us = data;
+      console.log(this.us.id);
+      
+   
+    },
+    error: (e) => console.error(e)
+  });
+
+
+
+    //get sales
     this.user.TotaleSales()
     .subscribe({
       next: (data) => {
@@ -164,6 +182,11 @@ renderChart(act2:any,list:any){
 }
 detail(id:string){
   this.router.navigate([`detailP/${id}`]);
+
+}
+logout():void{
+  this.auth.clearToken();
+
 
 }
 

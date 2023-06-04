@@ -1,15 +1,14 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { UserServiceService } from '../_services/user-service.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { user2 } from '../Models/user2';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { UserServiceService } from '../_services/user-service.service';
 
 @Component({
-  selector: 'app-all-users',
-  templateUrl: './all-users.component.html',
-  styleUrls: ['./all-users.component.scss']
+  selector: 'app-admin-user',
+  templateUrl: './admin-user.component.html',
+  styleUrls: ['./admin-user.component.scss']
 })
-export class AllUsersComponent implements OnInit, AfterViewInit {
+export class AdminUserComponent implements OnInit, AfterViewInit {
   users:  any[] = [];
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email','role','phone'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
@@ -25,7 +24,7 @@ export class AllUsersComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     
-    this.user.Client().subscribe({
+    this.user.Admin().subscribe({
       next: (data) => {
         this.users=data;
         console.log('data',data);
