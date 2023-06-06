@@ -1,5 +1,5 @@
 .login{
-  background-color: #7149C6;
+  background-color: #FFE6C7;
   padding-top: 3px;
  
   padding-bottom: 100%;
@@ -39,7 +39,13 @@ label {
 
 input:focus{
 outline:0;
-border:solid 4px #7149C6;
+border:solid 4px #FFE6C7;
 
-box-shadow: 2px 2px 4px 3px #8565c98d ;
+box-shadow: 2px 2px 4px 3px #FFE6C7 ;
+}
+.bouton{
+  background-color: #FFA559;
+  border:solid 4px #FFE6C7;
+   color:#454545;
+box-shadow: 2px 2px 4px 3px #FFE6C7;
 }

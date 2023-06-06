@@ -5,6 +5,7 @@ import { UserServiceService } from '../_services/user-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { LivreurComponent } from '../livreur/livreur.component';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-riders',
@@ -13,9 +14,9 @@ import { LivreurComponent } from '../livreur/livreur.component';
 })
 export class RidersComponent  implements OnInit, AfterViewInit {
   livreur!:any[];
-  displayedColumns: string[] = ['id','firstName','lastName', 'email', 'phone', 'enLigne','sold'];
+  displayedColumns: string[] = ['id','firstName','lastName', 'email', 'phone', 'enLigne','sold','Action'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
-  animal!: string;
+  animal!: Number;
   name!: string;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -63,4 +64,18 @@ export class RidersComponent  implements OnInit, AfterViewInit {
       this.animal = result;
     });
   }
+modifier(i:string):void {
+  const dialogRef = this.dialog.open(DialogComponent, {
+    data: {id:i, animal: this.animal},
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    this.animal = result;
+  });
+}
+bloquer(id:string){
+  this.user.bloquer(id).subscribe();
+
+}
 }

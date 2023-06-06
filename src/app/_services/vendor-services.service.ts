@@ -32,7 +32,7 @@ export class VendorServicesService {
   private apiUrl13= 'http://localhost:8085/pages/findAllPages';
   private apiUrl14= 'http://localhost:8085/pages/PagesBycategories';
 
-  
+  private apiUrl15= 'http://localhost:8085/pages/UserBypages';
   
   
  
@@ -175,6 +175,10 @@ getAllArticleByPage(id:string|null): Observable<Article[]> {
 getLocal(a:Activity,lat:Number,lon:Number):Observable<any>{
   const options = { headers: a };
   return this.http.post<Article[]>(`${this.apiUrl11}/${lat}/${lon}`,a);
+}
+//get user by page
+UserByPage(id:string):Observable<any>{
+  return this.http.get<String>(`${this.apiUrl15}/${id}`);
 }
 
 

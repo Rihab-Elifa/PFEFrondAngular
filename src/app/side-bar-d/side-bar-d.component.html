@@ -11,9 +11,9 @@
           <mat-list-item (click)="selectedMenuItem = 'commande'"><h2   class="text"><mat-icon class="mat-icon-24">shopping_cart</mat-icon>commande</h2></mat-list-item>
      
           <mat-list-item (click)="selectedMenuItem = 'Admin'"><h2   class="text"><mat-icon class="mat-icon-24">group</mat-icon>Admin Users</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="text"><mat-icon class="mat-icon-24"> <a routerLink="update/{{us.id}}">
-            </a>edit</mat-icon>Edit</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'logout'"><h2   class="text"><mat-icon class="mat-icon-24">logout</mat-icon> <a  (click)="logout()">Log out</a></h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="text"> <mat-icon class="mat-icon-24"><a routerLink="update/{{us.id}}">
+            edit </a></mat-icon>Edit</h2></mat-list-item>
+          <mat-list-item (click)="logout()"><h2   class="text"><mat-icon class="mat-icon-24">logout</mat-icon>deconnecté</h2></mat-list-item>
           
          </mat-list>
       </div>
@@ -98,7 +98,7 @@
                     <i class="fa fa-chart-pie fa-3x text"></i>
                     <div class="ms-3">
                         <p class="mb-2">Total Revenue</p>
-                        <h6 class="mb-0">$1234</h6>
+                        <h6 class="mb-0">${{admintol}}</h6>
                     </div>
                 </div>
                 </mat-card-content>
@@ -249,4 +249,3 @@
    
   
  
- <router-outlet></router-outlet>

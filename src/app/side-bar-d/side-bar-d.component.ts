@@ -37,6 +37,7 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
   totalSales:any;
   selectedMenuItem: string = 'dashboard';
   us!:any;
+  admintol:any;
   constructor(private route:ActivatedRoute,private auth:AuthService ,private userServ:UserServiceService,private vendor:VendorServicesService,private router:Router,private user:UserServiceService,private routerM:RouterModule) { }
   
   public type: ChartType = 'bar';
@@ -112,6 +113,17 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
       },
       error: (e) => console.error(e)
     });
+    //total admin revenu
+    this.user.Admintot()
+    .subscribe({
+      next: (data) => {
+        this.admintol=data;
+        console.log(data);
+     
+       
+      },
+      error: (e) => console.error(e)
+    });
   
     
     this.vendor.getAllPages()
@@ -124,6 +136,7 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
       },
       error: (e) => console.error(e)
     });
+  /*
     const x=Activity.BEAUTE;
     for(let i in Activity){
            
@@ -145,7 +158,8 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
     console.log('les pages par categorie',this.list);
 
 
-    }
+    } 
+  */
     
     console.log("les paramters",this.act2,this.list)
     

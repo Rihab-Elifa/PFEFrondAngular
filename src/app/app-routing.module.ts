@@ -39,6 +39,8 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
 {path:'profile',component:ProfileComponent, children:[
   {path:'update/:id',component:UpdateUserComponent},
   {path:'vendor',component:VendreComponent},
+ 
+  {path:'myPage/:id',component:MyPagesComponent},
   
   {path:'addP',component:AddProduitComponent},
   {path:'UpdatePage/:id',component:UpdatePageComponent},
@@ -47,7 +49,7 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
 ]},
 {path:'profile/livreur',component:LivreurComponent},
 
-{path:'profile/profile-vendor',component:ProfileVendorComponent,children:[
+{path:'profile',component:ProfileVendorComponent,children:[
   
 
   {path:'myPage/:id',component:MyPagesComponent},

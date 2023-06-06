@@ -16,15 +16,17 @@ const baseURL8 ="http://localhost:8085/User/todaySales";
 const baseURL9 ="http://localhost:8085/User/totalSales";
 const baseURL10 ="http://localhost:8085/api/auth/Livreurs";
 const baseURL11 ="http://localhost:8085/api/auth/Admins";
-
+const baseURL12 ="http://localhost:8085/api/auth/UpdateSolde";
+const baseURL13="http://localhost:8085/api/auth/Etat";
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
  
   private const  ="http://localhost:8085/User/listeUser";
-
-
+  private const2  ="http://localhost:8085/User/AdminTotalRevenu";
+  private const3  ="http://localhost:8085/User/AdminRevenu";
+  
   constructor(private http: HttpClient) { }
  
 
@@ -79,4 +81,23 @@ export class UserServiceService {
   Admin( ): Observable<any> {
     return this.http.get(baseURL11);
   }
+  //revenu total du admin 
+  Admintot( ): Observable<any> {
+    return this.http.get(this.const2);
+  }
+  //revenu du admin today
+  today( ): Observable<any> {
+    return this.http.get(this.const3);
+  }
+   //update solde
+   setSold(id:String,i:Number): Observable<any> {
+
+    return this.http.put(`${baseURL12}/${id}`,i);
+  }
+//bloquer
+bloquer(id:String): Observable<any> {
+  return this.http.put(`${baseURL13}/${id}`,'');
+}
+
+
 }

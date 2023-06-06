@@ -22,7 +22,7 @@ export class CommandeService {
     });
     
   
-    return this.http.post<any>(AUTH_API, commande);
+    return this.http.post<String>(AUTH_API, commande);
   }
   //get notification 
   getNotification(id:string|null):Observable<any>{

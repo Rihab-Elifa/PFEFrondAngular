@@ -78,7 +78,10 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { OrderComponent } from './order/order.component';
 import { RidersComponent } from './riders/riders.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     DialogOverviewExampleDialogComponent,
@@ -113,18 +116,20 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
         AllUsersComponent,
         OrderComponent,
         RidersComponent,
-        AdminUserComponent ,
+        AdminUserComponent,
+        DialogComponent ,
   
   
    
   ],
   imports: [
-   
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatSortModule,
     MatPaginatorModule,
     MatTableModule,
      MatDialogModule,
-  
+     MatMenuModule,
     MatSnackBarModule,
     MatSelectModule,
     MatToolbarModule,

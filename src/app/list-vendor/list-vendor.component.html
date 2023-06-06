@@ -45,6 +45,24 @@
       <th mat-header-cell *matHeaderCellDef> phone </th>
       <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
     </ng-container>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-button color="" [matMenuTriggerFor]="menu">
+        <span class="material-icons  icon-large">
+          drag_indicator
+          </span>
+       
+       </button>
+      
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="modifier(element.id)">modifier solde</button>
+        <button mat-menu-item (click)="bloquer(element.id)">bloqué</button>
+  
+      </mat-menu>
+      </td>
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

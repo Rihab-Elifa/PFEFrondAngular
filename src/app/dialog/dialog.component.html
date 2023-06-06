@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Quel est le nouveau solde à ajouter ?</p>
+  <mat-form-field>
+    <mat-label>solde</mat-label>
+    <input matInput type="Number" [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal"  cdkFocusInitial (click)="update(data.id,data.animal)"  >Ok</button>
+</div>

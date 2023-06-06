@@ -5,32 +5,42 @@
   </button>
   <span>My Profile</span>
   <span class="example-spacer"></span>
+  
+   <a routerLink="update/{{user.id}}">
+    <button mat-icon-button class="example-icon" aria-label="">
+      <mat-icon>edit</mat-icon>
+
+  </button></a>
+  <a  routerLink="vendor">
+    
+    <button mat-icon-button class="example-icon" aria-label="">
+      <span class="material-icons">
+        add_box
+        </span>
+
+  </button></a>
+  <a routerLink="myPage/{{user.id}}">
+    
+    <button mat-icon-button class="example-icon" aria-label="">
+      <span class="material-icons">
+        list
+        </span>
+
+  </button></a>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
    <mat-icon>share</mat-icon>
  </button>
-
+ <a  (click)="logout()">
  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-  <mat-icon><a  (click)="logout()">logout</a></mat-icon>
+<mat-icon>logout</mat-icon>
 </button>
- 
+</a>
 </mat-toolbar>
 </p>
-   <ul class="nav flex-column">
-    
-    <li class="nav-item">
-      <a class="nav-link" routerLink="vendor">Create page</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="UpdatePage/{{user.id}}">Update page</a>
-    </li>
-   
-    <li class="nav-item">
-      <a class="nav-link" (click)="logout()">Log out</a>
-    </li>
-  </ul>
+
  <div class="row">
   <div class="col-4">
     <mat-card class="crd1">
@@ -41,7 +51,7 @@
         <h1>Welcome {{subString}}</h1>
         <h2> Name:{{user.firstName}}</h2>
         <h2>phone:{{user.phone}}</h2></mat-card-content>
-        <button mat-fab extended color="warn">
+        <button mat-fab extended class="warnn">
           <mat-icon>favorite</mat-icon>
           <a class="nav-link" routerLink="vendor">Create page</a>
         </button>
@@ -64,22 +74,3 @@
   </div>
  </div>
   
-<div class="div">
-<h2 *ngFor="let p of user.ppg">pages 1:{{p.id}}</h2>
-<button class="btn btn-danger btn-block" (onclick)="click()">
-  Liste user
-</button>
-<button class="btn  btn-block btn2" ><a routerLink="update/{{user.id}}">
-  EditUser</a>
-</button>
-<button  class="btn  btn-danger" ><a  routerLink="vendor">
-
-  Create Page</a>
-</button>
-
-<button class="btn  btn-block " ><a routerLink="profile-vendor">
-  MyPages</a>
-</button>
-
-
-</div>
