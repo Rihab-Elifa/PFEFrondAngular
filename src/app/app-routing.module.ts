@@ -27,6 +27,7 @@ import { DashbordComponent } from './dashbord/dashbord.component';
 import { SideBarDComponent } from './side-bar-d/side-bar-d.component';
 import { ChartComponent } from './chart/chart.component';
 import { LivreurComponent } from './livreur/livreur.component';
+import { OrderClComponent } from './order-cl/order-cl.component';
 
 
 const routes: Routes = [{path:'register',component:RegisterComponent},
@@ -44,6 +45,8 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
   
   {path:'addP',component:AddProduitComponent},
   {path:'UpdatePage/:id',component:UpdatePageComponent},
+  {path:'OrderUser/:id',component:OrderClComponent}
+  
   
   
 ]},
@@ -67,8 +70,8 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
   //{path:'ListeArticle/DetailArt/:id',component:ArticleDetailComponent},
   {path:'myPage/:id/detailP/:id/DetailArt/:id',component:ArticleDetailComponent},
   {path:'myPage/:id/detailP/:id/UpdateArticle/:id',component:UpdateArticleComponent},
-  {path:'myPage/:id/detailP/:id/addP',component:AddProduitComponent},
-
+  {path:'myPage/:id/detailP/:id/addP/:id',component:AddProduitComponent},
+  {path:'myPage/:id/detailP/:id/OrderCl/:id',component:OrderClComponent},
   
   
  

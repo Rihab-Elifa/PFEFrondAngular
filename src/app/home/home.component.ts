@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { Produit2 } from '../Models/Produit2';
 import { VendorServicesService } from '../_services/vendor-services.service';
 import { Article } from '../Models/Article';
@@ -16,6 +18,7 @@ import {
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { activityy } from '../Models/activityy';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -32,12 +35,25 @@ export class HomeComponent  implements OnInit{
   a!:Number;
   b!:Number;
   products:any[]=[];
+  tabsearch:any[]=[{id:1,title:"pc hp"}
+  ,
+  {id:2,title:"pc asus"},{id:3,title:"pc dell"},
+ 
+]
+
+
+searchlist:string=""
+searchvalue:string=""
   t!:any;
   selectedActivity:Activity= Activity.FOOD;
   durationInSeconds = 5;
+  listeAct: string[] = activityy;
+  Restaurent:any[]=[];
+  elect:any[]=[];
+
   constructor(private _snackBar: MatSnackBar,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
   
-  ngOnInit(): void {
+ async ngOnInit() {
     this.vendorServ.getAllArticle().subscribe({
       next:(data)=>{
          this.article=data;
@@ -67,17 +83,17 @@ export class HomeComponent  implements OnInit{
     /*this.vendorServ.getLocal(this.selectedActivity,this.a,this.b).subscribe((data)=>{
       console.log(data);
     })*/
-    this.vendorServ.getLocal(this.selectedActivity,this.a,this.b).subscribe({
-      next:(data)=>{
+      this.vendorServ.getLocal(this.selectedActivity,this.a,this.b).subscribe(
+      (data)=>{
        console.log('hello');
-        this.Local=data;
+        this.Local= data;
          console.log(data);
-         console.log(this.Local);
         
       }
   
-    })
-  
+    )
+    console.log("local products ",this.Local);
+
     //sauvagrde position de user dans local storage
     //localStorage.setItem("Position", JSON.stringify({ lat: this.center.lat, lng: this.center.lng }));
 
@@ -114,7 +130,25 @@ export class HomeComponent  implements OnInit{
     console.log(token);})
 
    
+//categorie
+this.vendorServ.getAllArticleByCat(Activity.FOOD).subscribe({
+  next:(data)=>{
+    this.Restaurent=data;
+     console.log("RESTAURANTS",data);
+    
+  },
+  error: (e) => console.error(e)
 
+}) 
+this.vendorServ.getAllArticleByCat(Activity.ELECTRONIQUES).subscribe({
+  next:(data)=>{
+    this.elect=data;
+     console.log("ELECTRONIQUES",data);
+    
+  },
+  error: (e) => console.error(e)
+
+}) 
   
   }
 
@@ -230,6 +264,22 @@ this._snackBar.open("add successfly", "#");
 
 }
 
+
+
+/** NOTE  serach  */
+search(){
+  /** table */
+  console.log("search value",this.searchvalue)
+  this.searchlist=""
+  this.tabsearch.forEach((item)=>{
+    let res=item.title.replace(this.searchvalue,`<span style="color:orange ;">${this.searchvalue}</span>`)
+
+    this.searchlist +=`<li> <a href="">${res}</a> </li> `
+
+
+  })
+  console.log("search list =>" ,this.searchlist)
+}
 
 
 }

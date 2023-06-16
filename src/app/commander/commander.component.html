@@ -33,36 +33,29 @@
        
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" [(ngModel)]="Commande.address"   id="address" name="address" placeholder="1234 Main St">
+          <input type="text" class="form-control" [(ngModel)]="Commande.address"  [ngModelOptions]="{ standalone: true }" id="address" name="" placeholder="1234 Main St">
         </div>
       
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City</label>
-          <select id="inputCity" class="form-select" [(ngModel)]="Commande.city" name="city">
+          <select id="inputCity" class="form-select" [(ngModel)]="Commande.city" [ngModelOptions]="{ standalone: true }" name="">
             <option selected>Choose...</option>
             <option>...</option>
           </select>
         </div>
         <div class="col-md-6">
           <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select" [(ngModel)]="Commande.streetAddress"  name="streetAddress">
+          <select id="inputState" class="form-select" [(ngModel)]="Commande.streetAddress"  [ngModelOptions]="{ standalone: true }" name="">
             <option selected>Choose...</option>
             <option>...</option>
           </select>
         </div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="Commande.selectedTime"  >
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #picker></mat-datepicker>
-        </mat-form-field>
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" [(ngModel)]="Commande.description"id="description" name="description" style="height: 100px"></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" [(ngModel)]="Commande.description"id="description" [ngModelOptions]="{ standalone: true }"style="height: 100px"></textarea>
           <label for="floatingTextarea2">Comments</label>
         </div>
         <div class="">
-          <button type="submit" class="btn btn-danger" (click)="modif()">Save</button>
+          <button type="submit" class="btn color2" (click)="modif()">Save</button>
         </div>
       </form>
 
@@ -70,9 +63,9 @@
 
     </div>
     <div class="col-5">
-      <div class="card border-danger mb-3" >
+      <div class="card  mb-3" >
           <div class="card-header hed"><span> Produit info</span></div>
-          <div class="card-body text-danger" *ngFor="let p of products">
+          <div class="card-body " *ngFor="let p of products">
            
             
           <div class="row">
@@ -111,7 +104,7 @@
           <h5 class="card-title">Total :{{total | currency}}</h5>
         <h5 class="card-title">Livreur :10$</h5>
         <h5 class="card-title">Somme :{{total +10 | currency}}</h5>
-          <button type="submit" class="btn btn-danger" (click)="Confirmer()">Confirmer</button>
+          <button type="submit" class="btn color" (click)="Confirmer()">Confirmer</button>
         </div>
   </div>
 

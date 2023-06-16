@@ -16,6 +16,7 @@ import { page2 } from '../Models/page2';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit  {
+  selectedMenuItem:string="Edit";
   pages!:page2[];
   @Input()  users!:user[];
   

@@ -147,6 +147,7 @@ modif(){
   this.Commande.articles=this.products;
   //this.Commande.idVendor=this.products[0].page.id;
   this.Commande.idVendor=this.products[0].page.id;
+ 
   console.log(this.Commande);
   
 

@@ -82,6 +82,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ChartvendeurComponent } from './chartvendeur/chartvendeur.component';
+import { FooterComponent } from './footer/footer.component';
+import { OrderClComponent } from './order-cl/order-cl.component';
+import { OrderClientComponent } from './order-client/order-client.component';
 @NgModule({
   declarations: [
     DialogOverviewExampleDialogComponent,
@@ -117,7 +121,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
         OrderComponent,
         RidersComponent,
         AdminUserComponent,
-        DialogComponent ,
+        DialogComponent,
+        ChartvendeurComponent,
+        FooterComponent,
+        OrderClComponent,
+        OrderClientComponent ,
   
   
    

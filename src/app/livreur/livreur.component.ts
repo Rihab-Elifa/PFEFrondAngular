@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
@@ -29,12 +29,7 @@ hide = true;
 animal!: string;
 name!: string;
 
-constructor(private auth:AuthService , public dialogRef: MatDialogRef<LivreurComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-onNoClick(): void {
-  this.dialogRef.close();
-}
+constructor(private auth:AuthService){}
 
 
   onSubmit(){

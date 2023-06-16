@@ -32,7 +32,7 @@ date:any[]=[];
    use2: user[] = [];
    nbre:any[]=[];
   ngOnInit() {
-    this.user.weekRevenue('647860060826046450069a35')
+    this.user.monthRevenue('647860060826046450069a35')
     .subscribe({
       next: (data) => {
         this.revenue=data;
@@ -80,8 +80,8 @@ renderChart(date:any[],rev:any[],type:any,id:any){
        data:  rev,
 
        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
+        ' #FFE6C7',
+        ' #FF6000',
         'rgba(255, 206, 86, 0.2)',
         'rgba(75, 192, 192, 0.2)',
         'rgba(153, 102, 255, 0.2)',

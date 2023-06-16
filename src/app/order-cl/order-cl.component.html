@@ -1,0 +1,67 @@
+<div class="class">
+    <h1>Liste des commandes de vendeur  </h1>
+<br>
+<br>
+<br>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef> client</th>
+      <td mat-cell *matCellDef="let element"> {{element.idSender}} </td>
+    </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Action</th>
+        <td mat-cell *matCellDef="let element"> 
+            <button mat-fab extended  *ngIf="element.status=='DELIVERED'"  disabled>DELIVERED</button>
+            <button mat-fab extended  *ngIf="element.status=='IN_PREPARATION'"  disabled>IN_PREPARATION</button>
+            
+            <button mat-fab extended  *ngIf="element.status===null" class="color1" (click)="cancel(element.id)">Concel</button>
+            <button mat-fab extended   *ngIf="element.status===null" class="color2" (click)="Accept(element.id)">Accept</button>
+         </td>
+      </ng-container>
+        <!-- Weight Column -->
+  
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+
+
+
+
+
+
+
+</div>

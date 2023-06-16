@@ -1,124 +1,262 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-        <!-- font awesome -->
-        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-<div class = "product-collection">
-  <div class = "container">
-      <div class = "product-collection-wrapper">
-          <!-- product col left -->
-          <div class = "product-col-left flex">
-              <div class = "product-col-content">
-                <img class="image" [src]="'data:image/jpeg;base64,'+page2.imageProfile.bytes">
-                 
-              </div>
-          </div>
 
-          <!-- product col right -->
-          <div class = "product-col-right">
-              <div class = "product-col-r-top flex">
-                  <div class = "product-col-content">
-                    <img  [src]="'data:image/jpeg;base64,'+page2.imageCouverture.bytes" class="avatar" (click)="click()">
-                 
-                  </div>
-              </div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p></p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <div class="vend">
+     
+      <img class="image" [src]="'data:image/jpeg;base64,'+page2.imageCouverture.bytes">
+      <div class="profile-image"><img  [src]="'data:image/jpeg;base64,'+page2.imageProfile.bytes"></div> 
+    </div>
+    <h1>{{page2.title}}</h1>
+    <p><mat-icon>location_on</mat-icon>{{page2.address}}</p>
+    <p><span class="material-icons">
+      mail
+      </span>
+      {{page2.email}}</p>
 
-              <div class = "product-col-r-bottom">
-                  <!-- left -->
-                  <div class = "flex">
-                      <div class = "product-col-content">
-                       
-                      
-                        <h2 class = "md-title"><span>title:{{page2.title}}</span></h2>
-                        <h2>city:{{page2.city}}</h2>
-                      </div>
-                  </div>
-                  <!-- right -->
-                  <div class = "flex">
-                      <div class = "product-col-content">
-                        
-                          <h2 class = "md-title">best sellers </h2>
-                         <p class = "text-light">
-                            <p>adresse:{{page2.address}}</p>
-                            <p>email:{{page2.email}}</p>
-                            <p>city:{{page2.city}}</p>
-                            <p>phone:{{page2.phone}}</p>
-                            <p>postalCode:{{page2.postalCode}}</p>
-                            <p> activity{{page2.activity}}</p>
-                          
-                          <button type = "button" class = "btn-dark" routerLink="UpdatePage/{{page2.id}}">
-                            Update</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<div class = "products">
-  <div class = "container">
-      <h1 class = "lg-title">liste des produit</h1>
-      
+    <p><span class="material-icons">
+      phone
+      </span>{{page2.phone}}</p>
+    <p><span class="material-icons">
+      post_add
+      </span>{{page2.postalCode}}</p>
+    <p><span class="material-icons">
+      local_activity
+      </span>{{page2.activity}}</p>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
    
+      <p>
+        <mat-toolbar class="nav">
+         <button mat-icon-button class="example-icon"  (click)="drawer.toggle()"  aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <a class="nav-link" routerLink="addP/{{page2.id}}">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <span class="material-icons">
+            post_add
+            </span>
+       </button>
+        </a>
+        <a class="nav-link" routerLink="OrderCl/{{page2.id}}">
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <span  class="material-icons">
+          list_alt
+          </span>
+          </button>
+        </a>
 
-      <div class = "product-items"  *ngFor="let p of  article">
-          <!-- single product -->
-          <div class = "product">
-              <div class = "product-content">
-                  <div class = "product-img">
-                      <img [src]="'data:image/jpeg;base64,'+p.image.bytes"alt = "product image">
-                  </div>
-                  <div class = "product-btns">
-                      <button type = "button" class = "btn-cart" routerLink="DetailArt/{{p.id}}">Details
-                          <span><i class = "fas fa-plus"></i></span>
-                      </button>
-                      <button type = "button" class = "btn-buy"routerLink="UpdateArticle/{{p.id}}">Update
-                          <span></span>
-                      </button>
-                      <button type = "button" class = "btn-cart"(click)="supprimer(p.id)">supprimer
-                        <span><i class="fas fa-minus"></i></span>
-                    </button>
-                  </div>
-              </div>
+        <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <span class="material-icons">
+              notifications
+              </span></button>
+              
+                
+<mat-menu #menu="matMenu" >
+  <div  *ngFor="let n of notif">
+    <a class="nav-link" routerLink="addP/{{n.idCaisse}}">
+  <button mat-menu-item >{{n.title}}</button></a>
+  <button mat-menu-item>{{n.body}}</button>
+<hr></div> 
+</mat-menu>
+ 
 
-              <div class = "product-info">
-                  <div class = "product-info-top">
-                      <h2 class = "sm-title">lifestyle</h2>
-                      <div class = "rating">
-                          <span><i class = "fas fa-star"></i></span>
-                          <span><i class = "fas fa-star"></i></span>
-                          <span><i class = "fas fa-star"></i></span>
-                          <span><i class = "fas fa-star"></i></span>
-                          <span><i class = "far fa-star"></i></span>
-                      </div>
-                  </div>
-                  <p>Name:{{p.nom}}</p>
-        <p>Pix:{{p.prix}}</p>
-        <p>Stock:{{p.nbstock}}</p>
-              </div>
+       <a  (click)="logout()">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+       <mat-icon>logout</mat-icon>
+       </button>
+       </a>
+      </mat-toolbar>
+      </p>
 
-              <div class = "off-info">
-                  <h2 class = "sm-title">25% off</h2>
-              </div>
-          </div>
-          <!-- end of single product -->
-       
+
+      <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+           
+                    <div class="col-sm-6 col-xl-3">
+                        <mat-card >
+                            <mat-card-content>
+                        <div class=" rounded d-flex align-items-center justify-content-between p-4">
+                          <span class="material-icons fa-3x text">
+                            real_estate_agent
+                            </span>
+                            
+                            <div class="ms-3">
+                                <p class="mb-2">Today Sale</p>
+                                <h6 class="mb-0">$1234</h6>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                    </div>
+               
+           
+            <div class="col-sm-6 col-xl-3">
+                <mat-card >
+                    <mat-card-content>
+                <div class=" rounded d-flex align-items-center justify-content-between p-4">
+                  <span class="material-icons fa-3x text">
+                    point_of_sale
+                    </span>
+                    <div class="ms-3">
+                        <p class="mb-2">Total Sale</p>
+                        <h6 class="mb-0">$12540</h6>
+                    </div>
+                </div>
+                </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <mat-card >
+                    <mat-card-content>
+                <div class="rounded d-flex align-items-center justify-content-between p-4">
+                  <span class="material-icons fa-3x text">
+                    payment
+                    </span>
+                    <div class="ms-3">
+                        <p class="mb-2">Today Revenue</p>
+                        <h6 class="mb-0">$1234</h6>
+                    </div>
+                </div>
+                </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <mat-card >
+                    <mat-card-content>
+                <div class=" rounded d-flex align-items-center justify-content-between p-4">
+                    
+                    <span class="material-icons fa-3x text">
+                      credit_card
+                      </span>
+                    <div class="ms-3">
+                        <p class="mb-2">Total Revenue</p>
+                        <h6 class="mb-0">$1254</h6>
+                    </div>
+                </div>
+                </mat-card-content>
+                </mat-card>
+            </div>
         </div>
-      </div>
+    </div>
+<div>
+ <!--NOTE courebe-->
+ <div class="cont">
+  <mat-card class="example-card">
+      <mat-card-header>
+      <h5 class="card-title">statastique Derniere somaine</h5>
+      </mat-card-header>
+       <!--chart end-->
+       <mat-card-content>
+    <div class="chart-card">
+     
+      <h2>Bar Chart</h2>
+    <canvas id="barchart" ></canvas>
   </div>
-  <button class="btn btn-secondary">  <a class="nav-link" routerLink="addP">Add Produit</a></button>
+   
+  <div class="chart-card">
+  
+    <h2>Pie chart </h2>
+    <canvas id="piechart" >  </canvas>
+  
+  </div>
+  </mat-card-content>
+   </mat-card>
+</div>
+ <!--ENDNote-->
+ <div class="cont">
+  <mat-card class="example-card">
+      <mat-card-header>
+      <h5 class="card-title">statastique Derniere mois</h5>
+      </mat-card-header>
+       <!--chart end-->
+       <mat-card-content>
+    <div class="chart-card">
+     
+      <h2>Bar Chart</h2>
+    <canvas id="barchart2" ></canvas>
+  </div>
+   
+  <div class="chart-card">
+  
+    <h2>Pie chart </h2>
+    <canvas id="piechart2" >  </canvas>
+  
+  </div>
+  </mat-card-content>
+   </mat-card>
+</div>
+</div>
 
-</body>
-</html>
+
 <!--NOTE
-  <div>
+  <section class="class">
+  <mat-card>
+    <mat-card-content>
+  <div class="card" style="width: 18rem;" *ngFor="let p of  article">
+    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+    <div class="card-body">
+      <p>Name:{{p.nom}}</p>
+      <p>Pix:{{p.prix}}</p>
+      <p>Stock:{{p.nbstock}}</p>
+     
+      <a class="btn btn-danger" routerLink="DetailArt/{{p.id}}">Details</a>
+      <a  class="btn btn-danger" (click)="supprimer(p.id)">supprimer</a>
+      <a class="btn btn-success" routerLink="UpdateArticle/{{p.id}}">Update</a>
+    </div>
+  </div>
+   </mat-card-content>
+   </mat-card>
+</section>
+
+-->
+ <!-- NOTE card list-->
+
+ <div class="cards-list" *ngFor="let p of  article">
+  
+  <!-- NOTE card -->
+
+
+
+  <div class="card">
+    
+    <a href="" class="icons"><i class="fa-regular fa-eye"></i></a>
+    <a href="" class="icons"><i class="fa-solid fa-heart"></i></a>
+    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+    <h2>{{p.nom}}</h2>
+    <h2>Stock:{{p.nbstock}}</h2>
+    <div class="rating">
+      <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    </div>
+    <div class="card-footer">
+      <p class="price"><span class="dol">$</span>{{p.prix}}</p>
+      <a class="btn c1" routerLink="DetailArt/{{p.id}}"><span class="material-icons">
+        info
+        </span></a>
+      <a  class="btn c2" (click)="supprimer(p.id)"><span class="material-icons">
+        delete
+        </span></a>
+      <a class="btn c3" routerLink="UpdateArticle/{{p.id}}"><span class="material-icons">
+        create
+        </span></a>
+    </div>
+  </div>
+ </div>
+  </div>
+
+</mat-drawer-container>
+
+<!--
+    <div>
   <h2>Page Details</h2>
   <div class="container"><img class="image" [src]="'data:image/jpeg;base64,'+page2.imageProfile.bytes"></div>
   <div class="container relative"><img  [src]="'data:image/jpeg;base64,'+page2.imageCouverture.bytes" class="avatar" (click)="click()"><i class="fa-solid fa-camera" style="color: #ab0af5;"></i></div>
@@ -152,4 +290,5 @@
  
 <button class="btn btn-secondary">  <a class="nav-link" routerLink="addP">Add Produit</a></button>
 </div>
+
 -->

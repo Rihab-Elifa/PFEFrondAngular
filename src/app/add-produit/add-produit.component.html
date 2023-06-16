@@ -1,42 +1,47 @@
-
+<div class="class">
+  
 <!-- ajout-vente.component.html -->
-<div class="container">
-    <h1>Ajouter un Produit</h1>
-    <form (ngSubmit)="ajouterProduit()">
-      <div class="form-group">
-        <label for="id">ID :</label>
-        <input type="text" class="form-control" id="id" [(ngModel)]="id" name="id" required>
-      </div>
-      <div class="form-group">
-        <label for="name">Name :</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="article.nom" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="address">Description :</label>
-        <textarea class="form-control" id="description" [(ngModel)]="article.description" name="description" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="email">prix :</label>
-        <input type="number" class="form-control" id="prix" [(ngModel)]="article.prix" name="prix" required>
-      </div>
-      <div class="form-group">
-        <label for="city">Stock:</label>
-        <input type="Number" class="form-control" id="Stock" [(ngModel)]="article.nbstock" name="stock" required>
-      </div>
-     
-      
-     
-      
-      <div class="form-group">
-        <label for="image">Image  :</label>
-        <input type="file" class="form-control" id="image"  (change)="onProfilImageSelected($event)" name="image">
-      </div>
-       <!-- Progress Bar -->
-       <div class="progress form-group" *ngIf="">
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="">
-        </div>
+<div class="container" *ngIf="status==false">
+  <h1>Ajouter un Produit</h1>
+  <form (ngSubmit)="ajouterProduit()" >
+    <div class="form-group">
+      <label for="id">ID :</label>
+      <input type="text" class="form-control" id="id" [(ngModel)]="id" name="id" required>
     </div>
-      <button type="submit"   mat-raised-button
-      color="primary" class="btn btn-danger">Ajouter Article</button>
-    </form>
+    <div class="form-group">
+      <label for="name">Name :</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="article.nom" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Description :</label>
+      <textarea class="form-control" id="description" [(ngModel)]="article.description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="email">prix :</label>
+      <input type="number" class="form-control" id="prix" [(ngModel)]="article.prix" name="prix" required>
+    </div>
+    <div class="form-group">
+      <label for="city">Stock:</label>
+      <input type="Number" class="form-control" id="Stock" [(ngModel)]="article.nbstock" name="stock" required>
+    </div>
+   
+    
+   
+    
+    <div class="form-group">
+      <label for="image">Image  :</label>
+      <input type="file" class="form-control" id="image"  (change)="onProfilImageSelected($event)" name="image">
+    </div>
+     <!-- Progress Bar -->
+     <div class="progress form-group" *ngIf="">
+      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="">
+      </div>
   </div>
+    <button type="submit"   mat-fab extended
+   class="btn clorrr">Ajouter Article</button>
+  </form>
+</div>
+<div *ngIf="status==true">
+
+</div>
+</div>

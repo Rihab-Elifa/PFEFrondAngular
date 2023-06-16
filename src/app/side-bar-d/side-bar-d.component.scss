@@ -13,14 +13,14 @@
   }
   
   .example-sidenav {
-    padding: 20px;
+    
   }
   .color{
-    background-color: #FFA559;
+    background-color:#FFE6C7;
   
   }
   a{
-    color:#7149C6;
+    color:#454545;
   }
   .example-sidenav{
     padding: 0;
@@ -29,7 +29,9 @@
     background-color: #f2f2f2; /* Couleur de fond du sidebar */
   }
   .sidebar{
-    padding-top:50px;
+    padding-top:0px;
+    background-color: #FFE6C7;
+    height: 100%;
   }
   .sidebar li {
     cursor: pointer;
@@ -44,7 +46,7 @@
     background-color: #efa970; /* Couleur d'arrière-plan au survol */
   }
   .nav{
-    background:#efa970;
+    background:#FFE6C7;
     color:white;
     width:100%
   }
@@ -54,13 +56,16 @@
   
   .tab-livreur tr:hover{
     background:#efa970;
-    color:black;
+    color: #454545;
   }
   .text{
-    color:#7149C6 ;
+    color:#efa970 ;
+  }
+  .text2{
+    color:#454545 ;
   }
   .Details{
-    background-color:#7149C6 ;
+    background-color:#FF6000 ;
   }
   .tab-vend tr:hover{
     background:#efa970;
@@ -73,7 +78,15 @@
     color: #efa970;
   }
   .dash{
-    margin-top: 7px;
+    //margin-top: 7px;
     margin-left: 20px;
     margin-right: 20px;
   }
+  .logo{
+    font-size: small;
+    width: 200px;
+    height: 40px;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+}

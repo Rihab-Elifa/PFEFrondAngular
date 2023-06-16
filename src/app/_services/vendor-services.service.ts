@@ -33,6 +33,8 @@ export class VendorServicesService {
   private apiUrl14= 'http://localhost:8085/pages/PagesBycategories';
 
   private apiUrl15= 'http://localhost:8085/pages/UserBypages';
+  private apiUrl16= 'http://localhost:8085/article/articlesByCategory';
+ 
   
   
  
@@ -170,6 +172,10 @@ getAllArticle(): Observable<Article[]> {
 getAllArticleByPage(id:string|null): Observable<Article[]> {
   return this.http.get<Article[]>(`${this.apiUrl10}/${id}`);
 }
+//article by categorie
+getAllArticleByCat(c:Activity): Observable<any> {
+  return this.http.post<any[]>(this.apiUrl16,c);
+}
 
 //get local article 
 getLocal(a:Activity,lat:Number,lon:Number):Observable<any>{
@@ -180,8 +186,6 @@ getLocal(a:Activity,lat:Number,lon:Number):Observable<any>{
 UserByPage(id:string):Observable<any>{
   return this.http.get<String>(`${this.apiUrl15}/${id}`);
 }
-
-
 
 
 }

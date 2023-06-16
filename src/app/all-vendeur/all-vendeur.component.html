@@ -1,1 +1,119 @@
-<p>all-vendeur works!</p>
+<p>all-vendeur works!</p><!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>vendeur</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+<div class = "product-collection">
+  <div class = "container">
+      <div class = "product-collection-wrapper">
+          <!-- product col left 
+          <div class = "product-col-left flex">
+              <div class = "product-col-content">
+                <img class="image" [src]="'data:image/jpeg;base64,'+page2.imageProfile.bytes">
+                 
+              </div>
+          </div>-->
+
+          <!-- product col right
+          <div class = "product-col-right">
+              <div class = "product-col-r-top flex">
+                  <div class = "product-col-content">
+                    <img  [src]="'data:image/jpeg;base64,'+page2.imageCouverture.bytes" class="avatar" (click)="click()">
+                 
+                  </div>
+              </div> -->
+
+              <div class = "product-col-r-bottom">
+                  <!-- left -->
+                  <div class = "flex">
+                      <div class = "product-col-content">
+                       
+                      
+                       <!-- <h2 class = "md-title"><span>title:{{page2.title}}</span></h2>
+                        <h2>city:{{page2.city}}</h2>
+                      </div>-->
+                  </div>
+                  <!-- right -->
+                  <div class = "flex">
+                      <div class = "product-col-content">
+                        
+                          <h2 class = "md-title">best sellers </h2>
+                         <p class = "text-light">
+                       <!--   <p>adresse:{{page2.address}}</p>
+                            <p>email:{{page2.email}}</p>
+                            <p>city:{{page2.city}}</p>
+                            <p>phone:{{page2.phone}}</p>
+                            <p>postalCode:{{page2.postalCode}}</p>
+                            <p> activity{{page2.activity}}</p>
+                          
+                          <button type = "button" class = "btn-dark" routerLink="UpdatePage/{{page2.id}}">
+                            Update</button>-->  
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class = "products">
+  <div class = "container">
+      <h1 class = "lg-title">liste des produit</h1>
+      
+   
+
+     <!-- <div class = "product-items"  *ngFor="let p of  article">-->
+          <!-- single product -->
+          <div class = "product">
+              <div class = "product-content">
+                  <div class = "product-img">
+                    <!-- <img [src]="'data:image/jpeg;base64,'+p.image.bytes"alt = "product image">--> 
+                  </div>
+                 <!--<div class = "product-btns">
+                      <button type = "button" class = "btn-cart" routerLink="DetailArt/{{p.id}}">Details
+                          <span><i class = "fas fa-plus"></i></span>
+                      </button>
+                      <button type = "button" class = "btn-buy"routerLink="UpdateArticle/{{p.id}}">Update
+                          <span></span>
+                      </button>
+                    <button type = "button" class = "btn-cart"(click)="supprimer(p.id)">supprimer
+                        <span><i class="fas fa-minus"></i></span>
+                    </button>
+                  </div>-->
+              </div>
+
+              <div class = "product-info">
+                  <div class = "product-info-top">
+                      <h2 class = "sm-title">lifestyle</h2>
+                      <div class = "rating">
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "far fa-star"></i></span>
+                      </div>
+                  </div>
+               <!--   <p>Name:{{p.nom}}</p>
+        <p>Pix:{{p.prix}}</p>
+        <p>Stock:{{p.nbstock}}</p>-->
+              </div>
+
+              <div class = "off-info">
+                  <h2 class = "sm-title">25% off</h2>
+              </div>
+          </div>
+          <!-- end of single product -->
+       
+        </div>
+      </div>
+ <!-- </div>-->
+  <button class="btn btn-secondary">  <a class="nav-link" routerLink="addP">Add Produit</a></button>
+
+</body>
+</html>

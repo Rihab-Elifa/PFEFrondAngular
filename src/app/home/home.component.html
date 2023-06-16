@@ -1,101 +1,779 @@
-<div class="containr-fluid color">
-    <h1>welcome !! Free shopping </h1>
-</div>
-<!--NOTE
-  <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
--->
-<nav class="navbar navbar-expand-lg bg-light">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- NOTE css-->
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<!-- NOTE fontawsome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css" integrity="sha512-yDUXOUWwbHH4ggxueDnC5vJv4tmfySpVdIcN1LksGZi8W8EVZv4uKGrQc0pVf66zS7LDhFJM7Zdeow1sw1/8Jw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<!-- NOTE NAVBAR -->
+
+<nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand"  href="#"><img class="logo" src="../../assets/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#"><i class="fa-solid fa-house">Navbar</i></a>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex search" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline mm" type="submit">Search</button>
-        </form>
-        <i class="fa-solid fa-heart"></i>
-        <a routerLink="/login"><i class="fa-solid fa-user"></i></a>
-        <a routerLink="cart"><i class="fa-solid fa-cart-shopping">
-          <span class="position-absolute  translate-middle p-2 bg-danger border border-light rounded-circle">
-            <span class="visually-hidden">New alerts</span>
-          </span>
-        </i></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="search">
 
+          <div class="search-input">
+          <input type="search" id="search" (keyup)="search()" placeholder="search"  [(ngModel)]="searchvalue" > <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          
+          
+          <div class="list">
+          <ul class="suggestions-list select" [innerHTML]="searchlist">
+          </ul>
+          </div>
+          </div>
+          
+          <!-- NOTE search-->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+              </a>
+            </li>
+            
+          
+           
+          </ul>
+
+          <div class="btn-group" role="group" aria-label="Basic example">
+         
+            <button type="button" class="btn out"><a routerLink="/login"><i class="fa-solid fa-user"></i></a></button>
+            <button type="button" class="btn btn-outline"><a routerLink="cart"><i class="fa-solid fa-cart-flatbed-suitcase"></i> </a><span class="badge text-bg">4</span></button>
+
+          </div>
       </div>
-
     </div>
   </nav>
+<!-- NOTE NAVBAR-->
+<!-- NOTE NAVBAR CATEGORIE-->
+<ul class="nav">
+    <li class="nav-item">
+        <div class="dropdown">
+            <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars-staggered"></i>  categories
+            </button>
+            <ul class="dropdown-menu" >
+              <li *ngFor="let cat of listeAct"><a class="dropdown-item" href="#" >{{cat}}</a></li>
+            </ul>
+          </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Restaurent</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Mode</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled">Beaute</a>
+    </li>
+  </ul>
+<!-- NOTE NAVBAR CATEGORIE-->
 
- <section class="image">
-    <div class="hstack gap-8 local">
-        <input class="form-control me-auto" type="text" placeholder="Add your location..." aria-label="Add your item here...">
-        <button type="button" class="btn btn-danger"><i class="fas fa-search"></i></button>
-        <div class="vr"></div>
-    
+<!-- NOTE product new and location-->
+<div class="carousel-products">
+  <!-- NOTE location products-->
+
+<!-- NOTE  location products-->
+
+<div class="location-products">
+  <a  href="" type="button" class="btn btn-outline-danger">near products</a>
+  <div id="locationproducts" class="carousel slide">
+    <div class="carousel-inner" *ngFor="let p of  Local ">
+      <div class="carousel-item ">
+       <!-- CARD-->
+       <div class="card" style="">
+        <img  [src]="'data:image/jpeg;base64,'+p.image.bytes" class="card-img-top" >
+        <div class="card-body">
+          <h5 class="card-title">{{p.nom}}</h5>
+          <p class="card-text">   {{p.prix}}</p>
+         
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
- </section>
-<div class="container-fluid">
-  <div class="row">
-    <!--Liste des produit Local-->
-<div >
-  <h2 >Liste des produits local</h2>
-  
-  </div>
-  <section class="class">
-    <div class="card" style="width: 18rem;" *ngFor="let p of  Local">
-      <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
-      <div class="card-body">
-        <p>Name:{{p.nom}}</p>
-        <p>Pix:{{p.prix}}</p>
+       <!-- card-->
         
-       
-  <button   mat-stroked-button ><a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a></button>
-       <!--
-        <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
-       -->
-  
+      </div>
+   
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#locationproducts" data-bs-slide="prev">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#locationproducts" data-bs-slide="next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+</div>
+<!-- NOTE  location products-->
+
+
+<!-- NOTE  new products-->
+<div class="new-products">
+  <a  href="" type="button" class="btn btn-outline-primary">new products</a>
+  <div id="newproducts" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+       <!-- CARD-->
+       <div class="card" style="">
+        <img src="https://img.lemde.fr/2021/02/11/0/0/6720/4480/664/0/75/0/2fb7c4a_483381972-hygtfrc.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+       <!-- card-->
+        
+      </div>
+      <div class="carousel-item">
+       <!-- CARD-->
+       <div class="card" style="">
+        <img src="https://img.lemde.fr/2021/02/11/0/0/6720/4480/664/0/75/0/2fb7c4a_483381972-hygtfrc.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+       <!-- card-->
+        
+      </div>
+    
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#newproducts" data-bs-slide="prev">
+      <i class="fa-solid fa-chevron-left"></i>
+
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#newproducts" data-bs-slide="next">
+      <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+  </div>
+
+</div>
+<!-- NOTE  new products-->
+<div id="carouselExampleCaptions" class="carousel slide carousellocation" data-bs-ride="carousel">
+  <div class="location">Local produits</div> <a href="" class="btn btn-secondary more">more products</a>
+
+  <div class="carousel-indicators" *ngFor="let item of Local;let i=index">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to=i class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to=i-1 aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to=i-2 aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" *ngFor="let p of Local">
+    <div class="carousel-item active">
+      <img  [src]="'data:image/jpeg;base64,'+p.image.bytes" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5> <a href="">{{p.nom}}</a> </h5>
+        <p> {{p.prix}} </p>
+        <a  class="btn colorr"  (click)="addToCart(p)">Add to cart</a>
       </div>
     </div>
+    <div class="carousel-item">
+      <img src="https://img.lemde.fr/2021/02/11/0/0/6720/4480/664/0/75/0/2fb7c4a_483381972-hygtfrc.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5> <a href=""> Second slide label</a> </h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.lemde.fr/2021/02/11/0/0/6720/4480/664/0/75/0/2fb7c4a_483381972-hygtfrc.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5> <a href=""> Third slide label</a> </h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!-- NOTE location products-->
+
+<!-- NOTE new PRODUCT-->
+<div id="carouselExampleCaptions2" class="carousel slide newcarousel" data-bs-ride="carousel">
+  <div class="new">new products</div> <a href="" class="btn btn-secondary more">more products</a>
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.usinenouvelle.com/mediatheque/4/5/9/000698954_896x598_c.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><a href=""> First slide label</a> </h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.lemde.fr/2021/02/11/0/0/6720/4480/664/0/75/0/2fb7c4a_483381972-hygtfrc.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><a href=""> Second slide label</a> </h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+   
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- NOTE  new product-->
+
+</div>
+<!-- NOTE categories-->
+<div class="categories" >
+  <!-- NOTE categorie 1-->
+<div class="categ1">
+  <h1>ELECTRONIQUES</h1>
+<!-- REVIEW resposive cards-->
+<div class="cards" *ngFor="let r of elect">
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{r.nom}}</h5>
+      <p class="card-text">{{r.description}}</p>
+      <p class="card-text"><small class="text-body-secondary">{{r.prix}}</small></p>
+       <a  class="btn colorr"  (click)="addToCart(r)">Add to cart</a>
+    </div>
+    <img [src]="'data:image/jpeg;base64,'+r.image.bytes" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+
+   <!-- NOTE card -->
+   <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+</div>
+<!-- REVIEW responsive cards-->
+  <!-- NOTE categorie1  coursoul-->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngFor="let r of elect" >
+        <!-- NOTE  ROW-->
+<div class="row"  >
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{r.nom}}</h5>
+      <p class="card-text">{{r.description}}</p>
+      <p class="card-text"><small class="text-body-secondary"> <a  class="btn colorr"  (click)="addToCart(r)">Add to cart</a></small></p>
+    </div>
+    <img [src]="'data:image/jpeg;base64,'+r.image.bytes" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+  <!-- NOTE card 
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ -->
+  <!-- NOTE card -->
+
+   <!-- NOTE card -->
+   <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+</div>
+  <!-- NOTE  ROW-->
+      </div>
+      <div class="carousel-item">
+    <!-- NOTE  ROW-->
+    <div class="row">
+      <!-- NOTE card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
      
-  </section>
+      <!-- NOTE card -->
+      <!-- NOTE card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    
+       <!-- NOTE card -->
+       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    </div>
+      <!-- NOTE  ROW-->
+
+      </div>
+      <div class="carousel-item">
+
+    <!-- NOTE  ROW-->
+    <div class="row">
+    
+      <!-- NOTE card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+       <!-- NOTE card -->
+       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    
+       <!-- NOTE card -->
+       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    </div>
+      <!-- NOTE  ROW-->
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
   </div>
 
+  <!-- NOTE categorie1  coursoul-->
+
+<!-- NOTE  categorie link-->
+<a href="" class=" alert cc categ-link ">more products</a>
+<!-- NOTE  categorie link-->
+</div>
+
+<!-- NOTE categorie 2-->
+<div class="categ1">
+  <h1><span>RESTAURANTS</span></h1>
+<!-- REVIEW resposive cards-->
+<div class="cards" *ngFor="let r of Restaurent">
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{r.nom}}</h5>
+      <p class="card-text">{{r.description}}</p>
+      <p class="card-text"><small class="text-body-secondary">${{r.prix}}</small></p>
+      <a  class="btn colorr"  (click)="addToCart(r)">Add to cart</a>
+    </div>
+    <img [src]="'data:image/jpeg;base64,'+r.image.bytes" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+
+   <!-- NOTE card -->
+   <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+</div>
+<!-- REVIEW responsive cards-->
+  <!-- NOTE categorie1  coursoul-->
+  <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngFor="let r of Restaurent">
+        <!-- NOTE  ROW-->
+<div class="row" >
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      <a  class="btn colorr"  (click)="addToCart(r)">Add to cart</a>
+    </div>
+    <img [src]="'data:image/jpeg;base64,'+r.image.bytes" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+  <!-- NOTE card -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+
+   <!-- NOTE card -->
+   <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider  This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+  </div>
+ 
+  <!-- NOTE card -->
+</div>
+  <!-- NOTE  ROW-->
+      </div>
+      <div class="carousel-item">
+    <!-- NOTE  ROW-->
+    <div class="row">
+      <!-- NOTE card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+      <!-- NOTE card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    
+       <!-- NOTE card -->
+       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    </div>
+      <!-- NOTE  ROW-->
+
+      </div>
+      <div class="carousel-item">
+
+    <!-- NOTE  ROW-->
+    <div class="row">
+    
+      <!-- NOTE card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+       <!-- NOTE card -->
+       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    
+       <!-- NOTE card -->
+       <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider  This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
+      </div>
+     
+      <!-- NOTE card -->
+    </div>
+      <!-- NOTE  ROW-->
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- NOTE categorie1  coursoul-->
+
+<!-- NOTE  categorie link-->
+<a href="" class=" alert alert-danger categ-link ">more products</a>
+<!-- NOTE  categorie link-->
+</div>
+<!-- NOTE categorie 2-->
+</div>
+<!-- NOTE categories-->
+
+<div class="join-us">
+  <h2>Join us </h2>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <a href="https://fr-fr.facebook.com/" type="button" class="btn btn-primary"><i class="fa-brands fa-square-facebook"></i> <span class="badge bg-light text-dark">facebook</span></a>
+    <a href="" type="button" class="btn btn-danger"><i class="fa-brands fa-google"></i> <span class="badge bg-light text-dark">gmail</span></a>
+    <a href="" type="button" class="btn btn-info text-light"><i class="fa-brands fa-twitter"></i> <span class="badge bg-light text-dark">twitter</span></a>
+  </div>
+</div>
+
+
+
+
+
+<!-- NOTE footer-->
+<footer>
+  <h1> © 2023  all rights reserved</h1>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+<!--NOTE Last home page-->
+<!--
+<div class="containr-fluid color">
+  <h1>welcome !! Free shopping </h1>
+</div>-->
+<!--NOTE
+<div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+-->
+<!--
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"><i class="fa-solid fa-house">Navbar</i></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      
+
+      <i class="fa-solid fa-heart"></i>
+      <a routerLink="/login"><i class="fa-solid fa-user"></i></a>
+      <a routerLink="cart"><i class="fa-solid fa-cart-shopping">
+        <span class="position-absolute  translate-middle p-2 bg-danger border border-light rounded-circle">
+          <span class="visually-hidden">New alerts</span>
+        </span>
+      </i></a>
+
+    </div>
+
+  </div>
+</nav>
+-->
+
+<!-- NOTE SEARCH-->
+<!--
+<div class="search">
+
+<div class="search-input">
+<input type="search" id="search" (keyup)="search()" placeholder="search"  [(ngModel)]="searchvalue" > <i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+
+<div class="list">
+<ul class="suggestions-list select" [innerHTML]="searchlist">
+</ul>
+</div>
+</div>
+-->
+<!-- NOTE search-->
+
+<!--
+<div class="container" *ngFor="let p of  Local">
+  <h2 >Liste des produits local</h2>
+  <div class="row">
+      
+      <div class="col-md-3 col-sm-6">
+          <div class="product-grid3">
+              <div class="product-image3">
+                  <a href="#">
+                      <img class="pic-1" [src]="'data:image/jpeg;base64,'+p.image.bytes">
+                     
+                  </a>
+                  <ul class="social">
+
+                      <li><a (click)="addToCart(p)"><i class="fa fa-shopping-cart"></i></a></li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+              </div>
+              <div class="product-content">
+                  <h3 class="title"><a href="#">{{p.nom}}</a></h3>
+                  <div class="price">
+                    {{p.prix}}
+                      <span>$75.00</span>
+                  </div>
+                  <ul class="rating">
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star"></li>
+                      <li class="fa fa-star disable"></li>
+                      <li class="fa fa-star disable"></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+  </div>
+</div>
+
+<section class="">
+ 
+</section>
+<div class="container-fluid">-->
+<!--<div class="row">
+ 
+
+
+
+
 <div class="row">
- <!--List des produits-->
- <h2>Liste du produit</h2>
+
+<h2>Liste du produit</h2>
 
 
 <section class="class1">
-  <div class="card1" style="width: 18rem;" *ngFor="let p of  article">
-    <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
-    <div class="card-body">
-      <p>Name:{{p.nom}}</p>
-      <p>Pix:{{p.prix}}</p>
-      
-     
-     
-      <a  class="btn btn-danger"  (click)="addToCart(p)">Add to cart</a>
-    </div>
-  </div>
+<div class="card1" style="width: 18rem;" *ngFor="let p of  article">
+  <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
+  <div class="card-body">
+    <p>Name:{{p.nom}}</p>
+    <p>Pix:{{p.prix}}</p>
+    
    
+   
+    <a  class="btn colorr"  (click)="addToCart(p)">Add to cart</a>
+  </div>
+</div>
+ 
 </section>
 </div>
 </div>
-
- 
+-->
+<!--NOTE end last homepage-->

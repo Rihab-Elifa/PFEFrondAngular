@@ -4,16 +4,17 @@
      
       <div class="sidebar">
         <mat-list>
-          <mat-list-item (click)="selectedMenuItem = 'dashboard'"><h2 class="text"><mat-icon class="mat-icon-24">dashboard</mat-icon>Dashbord</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'Users'"><h2 class="text"><mat-icon class="mat-icon-24">group</mat-icon>Users</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'Vendeur'"><h2   class="text"><mat-icon class="mat-icon-24">storefront</mat-icon>Vendeur</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'Livreur'"><h2   class="text"><mat-icon class="mat-icon-24">directions_run</mat-icon>Livreur</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'commande'"><h2   class="text"><mat-icon class="mat-icon-24">shopping_cart</mat-icon>commande</h2></mat-list-item>
+            <img class="logo" src="../../assets/logo.png">
+          <mat-list-item (click)="selectedMenuItem = 'dashboard'"><h2 class="text2"><mat-icon class="mat-icon-24">dashboard</mat-icon>Dashbord</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Users'"><h2 class="text2"><mat-icon class="mat-icon-24">group</mat-icon>Users</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Vendeur'"><h2   class="text2"><mat-icon class="mat-icon-24">storefront</mat-icon>Vendeur</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Livreur'"><h2   class="text2"><mat-icon class="mat-icon-24">directions_run</mat-icon>Livreur</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'commande'"><h2   class="text2"><mat-icon class="mat-icon-24">shopping_cart</mat-icon>commande</h2></mat-list-item>
      
-          <mat-list-item (click)="selectedMenuItem = 'Admin'"><h2   class="text"><mat-icon class="mat-icon-24">group</mat-icon>Admin Users</h2></mat-list-item>
-          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="text"> <mat-icon class="mat-icon-24"><a routerLink="update/{{us.id}}">
+          <mat-list-item (click)="selectedMenuItem = 'Admin'"><h2   class="text2"><mat-icon class="mat-icon-24">group</mat-icon>Admin Users</h2></mat-list-item>
+          <mat-list-item (click)="selectedMenuItem = 'Edit'"><h2   class="tex2t"> <mat-icon class="mat-icon-24"><a routerLink="update/{{us.id}}">
             edit </a></mat-icon>Edit</h2></mat-list-item>
-          <mat-list-item (click)="logout()"><h2   class="text"><mat-icon class="mat-icon-24">logout</mat-icon>deconnecté</h2></mat-list-item>
+          <mat-list-item (click)="logout()"><h2   class="text2"><mat-icon class="mat-icon-24">logout</mat-icon>deconnecté</h2></mat-list-item>
           
          </mat-list>
       </div>
@@ -23,7 +24,7 @@
      
     </mat-drawer>
   
-    <div class="example-sidenav-content" *ngIf="selectedMenuItem === 'dashboard'">
+    <div class="example-sidenav-content" >
     
     <!-- NOTE  nav dashbord-->
     <p>
@@ -47,7 +48,8 @@
      
       <!--petite card-->
        <!-- Sale & Revenue Start -->
-    <div class="container-fluid pt-4 px-4">
+  <div *ngIf="selectedMenuItem === 'dashboard'">
+    <div class="container-fluid pt-4 px-4" >
         <div class="row g-4">
            
                     <div class="col-sm-6 col-xl-3">
@@ -230,18 +232,20 @@
     </mat-paginator>
   </div>
   <!-- NOTE end table -->
-    </div>
-    <app-list-vendor *ngIf="selectedMenuItem === 'Vendeur'"></app-list-vendor>
-    <app-all-users *ngIf="selectedMenuItem === 'Users'"></app-all-users>
-    <app-order *ngIf="selectedMenuItem === 'commande'"></app-order>
-    <app-riders *ngIf="selectedMenuItem === 'Livreur'"></app-riders>
-    <app-admin-user *ngIf="selectedMenuItem === 'Admin'"></app-admin-user>
-    <div *ngIf="selectedMenuItem === 'Edit'" >
-        <br>
-        <br><br>
+  </div>
+  <app-list-vendor *ngIf="selectedMenuItem === 'Vendeur'"></app-list-vendor>
+  <app-all-users *ngIf="selectedMenuItem === 'Users'"></app-all-users>
+  <app-order *ngIf="selectedMenuItem === 'commande'"></app-order>
+  <app-riders *ngIf="selectedMenuItem === 'Livreur'"></app-riders>
+  <app-admin-user *ngIf="selectedMenuItem === 'Admin'"></app-admin-user>
+  <div *ngIf="selectedMenuItem === 'Edit'" >
+      <br>
+      <br><br>
 
-       <router-outlet></router-outlet>
+     <router-outlet></router-outlet>
+  </div>
     </div>
+   
   </mat-drawer-container>
 
   

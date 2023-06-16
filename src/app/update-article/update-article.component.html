@@ -28,8 +28,15 @@
      
       
      
-      <button type="submit" class="btn btn-danger">Update Article</button>
-      <button type="submit" class="btn btn-secondary ">Delete Article</button>
+      <button type="submit" mat-fab extended class="btn color">Update Article</button>
+
     </form>
-    <div *ngIf=" isUpdated" class="alert alert-primary" role="alert">Article updated successfully</div>
-  </div>
+   
+    <div *ngIf=" isUpdated" class="alert col" role="alert">
+     
+      <span class="material-symbols-outlined">
+        check
+        </span>
+
+      <p>Article updated successfully</p>  
+    </div> </div>    

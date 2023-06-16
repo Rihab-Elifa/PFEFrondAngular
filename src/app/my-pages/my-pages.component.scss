@@ -7,7 +7,7 @@
  
   h1{
     text-align: center;
-    color: #FC2947;
+    color:#454545;
   }
 
 }
@@ -17,4 +17,16 @@ img{
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+mat-card {
+  margin-bottom: 30px;
+}
+.warnn{
+  background-color: #FFA559;
+}
+.warnn2{
+  background-color: #FFE6C7;
+}
+a{
+ color: #454545;
 }

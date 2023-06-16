@@ -1,6 +1,7 @@
 <div class="color"><h1>Liste des pages </h1></div>
 
-<div class="container text-center">
+<!--NOTE
+  <div class="container text-center">
   <div *ngFor="let tutorial of pages" class="row">
     <div class="col">
       {{ tutorial.title }}
@@ -22,4 +23,26 @@
     </div>
   </div>
 </div>
+-->
 
+<!--NOTE with angular material-->
+<mat-card  *ngFor="let tutorial of pages">
+    <mat-card-header>
+      <a routerLink="detailP/{{tutorial.id}}">
+        <div mat-card-avatar class="example-header-image"> <img  [src]="'data:image/jpeg;base64,'+tutorial.imageProfile.bytes" class="avatar"  ></div>
+      </a> <a routerLink="detailP/{{tutorial.id}}"><mat-card-title>{{ tutorial.title }}</mat-card-title></a> 
+
+    </mat-card-header>
+
+  <mat-card-actions align="end">
+  
+   
+      <button mat-fab extended class="warnn2"><a routerLink="UpdatePage/{{tutorial.id}}">
+        <span class="material-icons">
+          edit
+          </span></a></button>
+          <button mat-fab extended class="warnn" (click)="remove(tutorial.id)"><span class="material-icons">
+            delete
+            </span></button>
+  </mat-card-actions>
+</mat-card>
