@@ -30,6 +30,11 @@ rev2:any[]=[];
 date2:any[]=[];
 formattedDates2!:any;
 notif:any[]=[];
+totalSales:any;
+todaySales:any;
+todayRevenueV:any;
+totalRV:any;
+
   constructor(private vendorServ:VendorServicesService,private route:ActivatedRoute,private auth:AuthService,private userServ:UserServiceService,private commande:CommandeService){}
   ngOnInit(): void {
     let id=this.route.snapshot.paramMap.get('id');
@@ -108,7 +113,43 @@ this.renderChart(this.date2,this.rev2,'pie','piechart2');
   },
   error: (e) => console.error(e)
 });
-
+//total sales
+this.userServ.VSTotat(id)
+.subscribe({
+  next: (data) => {
+    this.totalSales=data;
+    console.log(data);
+  },
+  error: (e) => console.error(e)
+});
+//today sales
+this.userServ.SalsT(id)
+.subscribe({
+  next: (data) => {
+    this.todaySales=data;
+    console.log(data);
+  },
+  error: (e) => console.error(e)
+});
+//today revenue
+this.userServ.VendeurReToday(id)
+.subscribe({
+  next: (data) => {
+    this.todayRevenueV=data;
+    console.log(data);
+  },
+  error: (e) => console.error(e)
+});
+//total revenue
+this.userServ.VendeurReT(id)
+.subscribe({
+  next: (data) => {
+    this.totalRV=data;
+    console.log(data);
+  },
+  error: (e) => console.error(e)
+});
+  
   
   } 
   onProfilImageSelected(event: any): void {

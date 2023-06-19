@@ -38,6 +38,8 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
   selectedMenuItem: string = 'dashboard';
   us!:any;
   admintol:any;
+  admintodayS:any;
+  adminTRevenue:any;
   constructor(private route:ActivatedRoute,private auth:AuthService ,private userServ:UserServiceService,private vendor:VendorServicesService,private router:Router,private user:UserServiceService,private routerM:RouterModule) { }
   
   public type: ChartType = 'bar';
@@ -113,6 +115,18 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
       },
       error: (e) => console.error(e)
     });
+    //today sales 
+    this.user.TodaySales()
+    .subscribe({
+      next: (data) => {
+        this.admintodayS=data;
+        console.log("admintodayS",data.revenue
+        );
+     
+       
+      },
+      error: (e) => console.error(e)
+    });
     //total admin revenu
     this.user.Admintot()
     .subscribe({
@@ -124,7 +138,17 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
       },
       error: (e) => console.error(e)
     });
-  
+  //today revenue
+  this.user.today()
+  .subscribe({
+    next: (data) => {
+      this.adminTRevenue=data;
+      console.log(data);
+   
+     
+    },
+    error: (e) => console.error(e)
+  });
     
     this.vendor.getAllPages()
     .subscribe({

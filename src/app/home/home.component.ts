@@ -50,7 +50,7 @@ searchvalue:string=""
   listeAct: string[] = activityy;
   Restaurent:any[]=[];
   elect:any[]=[];
-
+htmlvalue=`<p style="color:red">inner html css</p>`
   constructor(private _snackBar: MatSnackBar,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
   
  async ngOnInit() {
@@ -272,10 +272,10 @@ search(){
   console.log("search value",this.searchvalue)
   this.searchlist=""
   this.tabsearch.forEach((item)=>{
-    let res=item.title.replace(this.searchvalue,`<span style="color:orange ;">${this.searchvalue}</span>`)
+    let res=item.title.replace(this.searchvalue,`<span style="background:orange !important  ;">${this.searchvalue}</span>`)
 
-    this.searchlist +=`<li> <a href="">${res}</a> </li> `
-
+    this.searchlist +=`<li style="color:black"> <a href="">${res}</a> </li> `
+console.log(this.searchlist)
 
   })
   console.log("search list =>" ,this.searchlist)

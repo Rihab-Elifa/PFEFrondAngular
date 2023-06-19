@@ -28,14 +28,12 @@ export class OrderClientComponent implements OnInit, AfterViewInit {
        let id=this.route.snapshot.paramMap.get('id');
     console.log(id);
     
-    this.commande.getClientC(id).subscribe({
+    this.commande.ClientC(id).subscribe({
       next: (data) => {
 
         this.c= data;
-        console.log(data);
+        console.log("My commande",data);
         this.dataSource.data = data;
-       
-      
       },
       error: (e) => console.error(e)
     });

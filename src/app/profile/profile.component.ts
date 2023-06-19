@@ -16,6 +16,7 @@ import { page2 } from '../Models/page2';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit  {
+  verif=true
   selectedMenuItem:string="Edit";
   pages!:page2[];
   @Input()  users!:user[];
@@ -55,6 +56,9 @@ export class ProfileComponent implements OnInit  {
     .subscribe({
       next: (data) => {
         this.user = data;
+        if(this.user.etat == false){
+          this.verif=false;
+        }
         //this.firstPageId = this.user.ppg[0].id;
         console.log(data);
         console.log(this.user.id);

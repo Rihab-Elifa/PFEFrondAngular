@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { user } from '../Models/user';
 import { Observable } from 'rxjs';
 import { user2 } from '../Models/user2';
+import { u } from '../Models/u';
 const baseURL ="http://localhost:8085/User/edit";
 const baseURL3="http://localhost:8085/User";
 const baseURL4="http://localhost:8085/User/email";
@@ -21,6 +22,7 @@ const baseURL13="http://localhost:8085/api/auth/Etat";
 const baseURL14="http://localhost:8085/User/VendeurTotalRevenu";
 const baseURL15="http://localhost:8085/User/VendeurSalesToday";
 const baseURL16="http://localhost:8085/User/VendeurSalesTotal";
+const  baseURL18="http://localhost:8085/User/VendeurTodayR";
 @Injectable({
   providedIn: 'root'
 })
@@ -37,9 +39,9 @@ export class UserServiceService {
     return this.http.get<user>(`${baseURL3}/${id}`);
   }
 
-  getUserByemail(email:String): Observable<user> {
+  getUserByemail(email:String): Observable<u> {
 
-    return this.http.get<user>(`${baseURL4}/${email}`);
+    return this.http.get<u>(`${baseURL4}/${email}`);
   }
 
 
@@ -103,15 +105,18 @@ bloquer(id:String): Observable<any> {
 }
 //vendeur 
 //total revenu vendeur
-VendeurReT(id:String ): Observable<any> {
+VendeurReT(id:String |null ): Observable<any> {
   return this.http.get(`${baseURL14}/${id}`);
 }
+VendeurReToday(id:String |null): Observable<any> {
+  return this.http.get(`${baseURL18}/${id}`);
+}
 //vendeurs sales today
-SalsT(id:String ): Observable<any> {
+SalsT(id:String |null): Observable<any> {
   return this.http.get(`${baseURL15}/${id}`);
 }
 //Vedeurs sales total
-VSTotat(id:String ): Observable<any> {
+VSTotat(id:String |null): Observable<any> {
   return this.http.get(`${baseURL16}/${id}`);
 }
 }

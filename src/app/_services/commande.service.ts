@@ -48,7 +48,7 @@ export class CommandeService {
     return this.http.get(`${AUTH_API4}/${id}`);
   }
   //get list client 
-  getClientC(id:string|null):Observable<any>{
+  ClientC(id:string|null):Observable<any>{
     return this.http.get(`${AUTH_API5}/${id}`);
   }
   //get list vendeur
