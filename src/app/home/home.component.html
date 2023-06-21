@@ -293,17 +293,17 @@
   <!-- NOTE categorie1  coursoul-->
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" *ngFor="let r of elect" >
+      <div class="carousel-item active" *ngFor="let r of e" >
         <!-- NOTE  ROW-->
 <div class="row"  >
   <!-- NOTE card -->
-  <div class="card">
+  <div class="card" *ngFor="let rr of r">
     <div class="card-body">
-      <h5 class="card-title">{{r.nom}}</h5>
-      <p class="card-text">{{r.description}}</p>
-      <p class="card-text"><small class="text-body-secondary"> <a  class="btn colorr"  (click)="addToCart(r)">Add to cart</a></small></p>
+      <h5 class="card-title">{{rr.nom}}</h5>
+      <p class="card-text">{{rr.description}}</p>
+      <p class="card-text"><small class="text-body-secondary"> <a  class="btn colorr"  (click)="addToCart(rr)">Add to cart</a></small></p>
     </div>
-    <img [src]="'data:image/jpeg;base64,'+r.image.bytes" class="card-img-bottom" alt="...">
+    <img [src]="'data:image/jpeg;base64,'+rr.image.bytes" class="card-img-bottom" alt="...">
   </div>
  
   <!-- NOTE card -->
@@ -319,103 +319,12 @@
  -->
   <!-- NOTE card -->
 
-   <!-- NOTE card -->
-   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider  This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-    <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
-  </div>
  
-  <!-- NOTE card -->
 </div>
   <!-- NOTE  ROW-->
       </div>
-      <div class="carousel-item">
-    <!-- NOTE  ROW-->
-    <div class="row">
-      <!-- NOTE card -->
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider  This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
-      </div>
-     
-      <!-- NOTE card -->
-      <!-- NOTE card -->
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider  This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
-      </div>
-     
-      <!-- NOTE card -->
-    
-       <!-- NOTE card -->
-       <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider  This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-        <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
-      </div>
-     
-      <!-- NOTE card -->
-    </div>
-      <!-- NOTE  ROW-->
 
-      </div>
-      <div class="carousel-item">
-
-    <!-- NOTE  ROW-->
-    <div class="row">
-    
-      <!-- NOTE card -->
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider  This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
-      </div>
      
-      <!-- NOTE card -->
-       <!-- NOTE card -->
-       <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider  This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-        <img src="./images/2015-11-16_Maulbronn_DE-DE10532954943_1920x1080.jpg" class="card-img-bottom" alt="...">
-      </div>
-     
-      <!-- NOTE card -->
-    
-       <!-- NOTE card -->
-       <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider  This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-        <img src="./images/2015-11-18_HeydarAlijev_PT-BR8201111458_1920x1080.jpg" class="card-img-bottom" alt="...">
-      </div>
-     
-      <!-- NOTE card -->
-    </div>
-      <!-- NOTE  ROW-->
-      </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
       <i class="fa-solid fa-chevron-left"></i>

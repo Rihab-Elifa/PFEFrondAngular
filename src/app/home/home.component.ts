@@ -50,6 +50,7 @@ searchvalue:string=""
   listeAct: string[] = activityy;
   Restaurent:any[]=[];
   elect:any[]=[];
+  e:any[]=[];
 htmlvalue=`<p style="color:red">inner html css</p>`
   constructor(private _snackBar: MatSnackBar,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
   
@@ -138,17 +139,31 @@ this.vendorServ.getAllArticleByCat(Activity.FOOD).subscribe({
     
   },
   error: (e) => console.error(e)
+ 
 
 }) 
 this.vendorServ.getAllArticleByCat(Activity.ELECTRONIQUES).subscribe({
   next:(data)=>{
     this.elect=data;
      console.log("ELECTRONIQUES",data);
+      //construire une list de 3 pour le curseul
+
+ let groupeActuel: any[] = [];
+
+ for (let i = 0; i < this.elect.length; i++) {
+   groupeActuel.push(this.elect[i]);
+
+   if (groupeActuel.length === 3 || i === this.elect.length - 1) {
+     this.e.push(groupeActuel);
+     groupeActuel = [];
+   }
+ }
     
   },
   error: (e) => console.error(e)
 
 }) 
+
   
   }
 

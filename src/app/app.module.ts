@@ -86,6 +86,8 @@ import { ChartvendeurComponent } from './chartvendeur/chartvendeur.component';
 import { FooterComponent } from './footer/footer.component';
 import { OrderClComponent } from './order-cl/order-cl.component';
 import { OrderClientComponent } from './order-client/order-client.component';
+import { RegisterSAdminComponent } from './register-sadmin/register-sadmin.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
 @NgModule({
   declarations: [
     DialogOverviewExampleDialogComponent,
@@ -125,7 +127,9 @@ import { OrderClientComponent } from './order-client/order-client.component';
         ChartvendeurComponent,
         FooterComponent,
         OrderClComponent,
-        OrderClientComponent ,
+        OrderClientComponent,
+        RegisterSAdminComponent ,
+        DashbordComponent
   
   
    

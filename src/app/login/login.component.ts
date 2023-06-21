@@ -42,8 +42,10 @@ export class LoginComponent {
         if (role.includes('ROLE_ADMIN')) {
         // Rediriger vers la page admin
         this.route.navigate(['sidebar']);
-        } else {
+        } else if(role.includes('ROLE_CLIENT')){
           this.route.navigate(['profile']);
+        }else {
+          this.route.navigate(['dashbord']);
         }
        
   

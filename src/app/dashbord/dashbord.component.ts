@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
+import { UserServiceService } from '../_services/user-service.service';
+import { VendorServicesService } from '../_services/vendor-services.service';
 
 @Component({
   selector: 'app-dashbord',
@@ -7,59 +11,59 @@ import { Component } from '@angular/core';
 })
 export class DashbordComponent {
   
-//Sidebar toggle show hide function
-status = false;
-addToggle()
-{
-  this.status = !this.status;       
-}
+    showFiller = false;
+    listPages:any[]=[];
+    
+    act2:any[]=[];
+    list:any[]=[];
+    totalSales:any;
+    selectedMenuItem: string = 'dashboard';
+    us!:any;
+    admintol:any;
+    admintodayS:any;
+    adminTRevenue:any;
+    constructor(private route:ActivatedRoute,private auth:AuthService ,private userServ:UserServiceService,private vendor:VendorServicesService,private router:Router,private user:UserServiceService) { }
 
-//Charts
-type = 'line';
-type2 = 'bar';
-dataa = {
-  labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-  datasets: [{
-          label: "Salse",
-          data: [15, 30, 55, 45, 70, 65, 85],
-          backgroundColor: "rgba(235, 22, 22, .7)",
-          fill: true
+    ngOnInit() {
+      const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+      const email = currentUser.email;
+    
+    this.userServ.getUserByemail(email)
+    .subscribe({
+      next: (data) => {
+        this.us = data;
+        console.log(this.us.id);
+        
+     
       },
-      {
-          label: "Revenue",
-          data: [99, 135, 170, 130, 190, 180, 270],
-          backgroundColor: "rgba(235, 22, 22, .5)",
-          fill: true
-      }
-  ]
-  }
-  dataaa = {
-    labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-    datasets: [{
-            label: "Salse",
-            data: [15, 30, 55, 45, 70, 65, 85],
-            backgroundColor: "rgba(235, 22, 22, .7)",
-            fill: true
+      error: (e) => console.error(e)
+    });
+      this.vendor.getAllPages()
+      .subscribe({
+        next: (data) => {
+          this.listPages=data;
+          console.log(data);
+       
+         
         },
-        {
-            label: "Revenue",
-            data: [99, 135, 170, 130, 190, 180, 270],
-            backgroundColor: "rgba(235, 22, 22, .5)",
-            fill: true
-        }
-    ]
+        error: (e) => console.error(e)
+      });
+  
+      
+      console.log("les paramters",this.act2,this.list)
+      
+ 
     }
-         options = {
-           
-            
-            maintainAspectRatio: true,
-            scales: {
-                yAxes : [{
-                    ticks : {
-                        max : 90,    
-                        min : 30
-                    }
-                }]
-            }
-        };
-}
+
+  logout():void{
+    this.auth.clearToken();
+  
+  
+  }
+  
+  }
+  
+  
+
+  
+  

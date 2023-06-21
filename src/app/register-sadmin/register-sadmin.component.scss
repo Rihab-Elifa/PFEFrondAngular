@@ -1,0 +1,54 @@
+
+
+
+.container-fluid .row{
+    width: 100%;
+    height: 100vh;
+}
+.row{
+    display: grid !important;
+    grid-template-columns: 30% 65%;
+    justify-content: center;
+    align-items: center;
+}
+.row img{
+    display: block;
+    width: 100%;
+    height: 106vh;
+   
+}
+mat-card{
+    width: 90%;
+   
+
+    
+}
+mat-form-field[class="example"]{
+    width: 40% !important;
+}
+
+mat-form-field{
+    width: 100% !important;
+}
+input{
+    width: 100% !important;
+   
+}
+form-group{
+ background:#FFDEB9;
+color: #efa970;   
+}
+.colorrr{
+    background-color: #FE6244;
+   margin-left: 68%;
+}
+h1{
+
+color:#efa970;
+}
+
+.close{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

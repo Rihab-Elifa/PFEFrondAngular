@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 const AUTH_API = 'http://localhost:8085/api/auth/login';
 const AUTH_API2 = 'http://localhost:8085/api/auth/registerUser';
 const AUTH_API3 = 'http://localhost:8085/api/auth/registerDelivery';
+const AUTH_API4 = 'http://localhost:8085/api/auth/SousAdmin';
 
 @Injectable({
   providedIn: 'root'
@@ -121,7 +122,9 @@ export class AuthService {
   registerLivreur(livreur:any): Observable<any> {
     return this.http.post(AUTH_API3,livreur)}
 
- 
+ //registrer sous admin
 
+ SousAdminR(a:any): Observable<any> {
+    return this.http.post(AUTH_API4,a)}
 
 }
