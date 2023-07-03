@@ -88,6 +88,7 @@ import { OrderClComponent } from './order-cl/order-cl.component';
 import { OrderClientComponent } from './order-client/order-client.component';
 import { RegisterSAdminComponent } from './register-sadmin/register-sadmin.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
+import { Dialog22Component } from './dialog22/dialog22.component';
 @NgModule({
   declarations: [
     DialogOverviewExampleDialogComponent,
@@ -129,7 +130,8 @@ import { DashbordComponent } from './dashbord/dashbord.component';
         OrderClComponent,
         OrderClientComponent,
         RegisterSAdminComponent ,
-        DashbordComponent
+        DashbordComponent,
+        Dialog22Component
   
   
    

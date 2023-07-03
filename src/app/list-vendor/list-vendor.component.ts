@@ -8,7 +8,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { UserServiceService } from '../_services/user-service.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
+import { Dialog22Component } from '../dialog22/dialog22.component';
 
 @Component({
   selector: 'app-list-vendor',
@@ -57,7 +57,7 @@ export class ListVendorComponent implements OnInit, AfterViewInit {
   }
 
   modifier(i:string):void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(Dialog22Component, {
       data: {id:i, animal: this.Animal},
     });
   

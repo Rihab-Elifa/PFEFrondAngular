@@ -4,14 +4,14 @@ import { DialogData } from '../dialog-overview-example-dialog/dialog-overview-ex
 import { UserServiceService } from '../_services/user-service.service';
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  selector: 'app-dialog22',
+  templateUrl: './dialog22.component.html',
+  styleUrls: ['./dialog22.component.scss']
 })
-export class DialogComponent implements OnInit{
+export class Dialog22Component implements OnInit{
   u!:any;
   constructor(private user:UserServiceService,
-    public dialogRef: MatDialogRef<DialogComponent>,
+    public dialogRef: MatDialogRef<Dialog22Component>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
   ngOnInit() {
@@ -28,7 +28,7 @@ export class DialogComponent implements OnInit{
     this.dialogRef.close();
   }
   update(id:String,i:Number){
-    this.user.sousAdminsolde(id,this.u.id,i).subscribe();
+    this.user.PagesAdminsolde(id,this.u.id,i).subscribe();
   }
 
 }

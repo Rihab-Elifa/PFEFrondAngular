@@ -23,6 +23,9 @@ const baseURL14="http://localhost:8085/User/VendeurTotalRevenu";
 const baseURL15="http://localhost:8085/User/VendeurSalesToday";
 const baseURL16="http://localhost:8085/User/VendeurSalesTotal";
 const  baseURL18="http://localhost:8085/User/VendeurTodayR";
+const baseURL19 ="http://localhost:8085/api/auth/UpdateSoldeSousAdmin";
+const baseURL20="http://localhost:8085/api/auth/Reset";
+const baseURL21 ="http://localhost:8085/api/auth/PagesSoldeSousAdmin";
 @Injectable({
   providedIn: 'root'
 })
@@ -119,4 +122,19 @@ SalsT(id:String |null): Observable<any> {
 VSTotat(id:String |null): Observable<any> {
   return this.http.get(`${baseURL16}/${id}`);
 }
+//update solde with sous admin
+sousAdminsolde(id:String,id2:string,i:Number): Observable<any> {
+
+  return this.http.put(`${baseURL19}/${id}/${id2}`,i);
+}
+//reset
+Reset(id:String): Observable<any> {
+return this.http.put(`${baseURL20}/${id}`,'');
+}
+//update solde pages with sous admin
+PagesAdminsolde(id:String,id2:string,i:Number): Observable<any> {
+
+  return this.http.put(`${baseURL21}/${id}/${id2}`,i);
+}
+
 }

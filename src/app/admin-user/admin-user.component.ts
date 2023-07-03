@@ -13,7 +13,7 @@ import { RegisterSAdminComponent } from '../register-sadmin/register-sadmin.comp
 })
 export class AdminUserComponent implements OnInit, AfterViewInit {
   users:  any[] = [];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email','role','phone'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email','role','phone','caisse','reset'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -67,6 +67,15 @@ export class AdminUserComponent implements OnInit, AfterViewInit {
       this.animal = result;
     });
     
+  }
+  reset(id:string){
+    this.user.Reset(id).subscribe({
+      next: (data) => {
+        console.log(data);
+
+      },
+      error: (e) => console.error(e)
+    });
   }
 
 }

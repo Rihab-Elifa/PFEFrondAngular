@@ -51,6 +51,18 @@
       <th mat-header-cell *matHeaderCellDef>phone</th>
       <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
     </ng-container>
+    <ng-container matColumnDef="caisse">
+      <th mat-header-cell *matHeaderCellDef>caisse</th>
+      <td mat-cell *matCellDef="let element"> {{element.compteurC-(element.compteurC*0.01)}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="reset">
+      <th mat-header-cell *matHeaderCellDef>reset</th>
+      <td mat-cell *matCellDef="let element"> 
+      <button (click)="reset(element.id)">  <span class="material-icons">
+        restart_alt
+        </span></button></td>
+    </ng-container>
 
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

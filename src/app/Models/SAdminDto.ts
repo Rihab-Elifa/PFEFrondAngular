@@ -1,4 +1,5 @@
-export class SAdminDto {   email!:any;
+export class SAdminDto {  
+     email!:any;
     password!:any;
     firstName!:any;
     lastName!:any;
