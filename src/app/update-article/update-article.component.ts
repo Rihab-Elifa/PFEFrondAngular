@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { VendorServicesService } from '../_services/vendor-services.service';
 import { Article } from '../Models/Article';
 import { page2 } from '../Models/page2';
 import { File } from '../Models/File';
 import { ActivatedRoute } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-article',
@@ -21,11 +22,14 @@ export class UpdateArticleComponent implements OnInit{
     page: new page2,
     image: new File
   }
-  constructor(private servVendor:VendorServicesService,private route:ActivatedRoute){}
+  constructor(private servVendor:VendorServicesService,private route:ActivatedRoute,public dialogRef: MatDialogRef<UpdateArticleComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {}
+  
   ngOnInit(): void {
     let id=this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.servVendor.getArticle(id).subscribe({
+    this.servVendor.getArticle(this.data.id).subscribe({
       next: (data) => {
        this.article=data;
        console.log(data);

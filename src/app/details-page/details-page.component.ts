@@ -8,6 +8,9 @@ import { AuthService } from '../_services/auth.service';
 import { UserServiceService } from '../_services/user-service.service';
 import { Chart, registerables } from 'chart.js'
 import { CommandeService } from '../_services/commande.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ArticleDetailComponent } from '../article-detail/article-detail.component';
+import { UpdateArticleComponent } from '../update-article/update-article.component';
 
 @Component({
   selector: 'app-details-page',
@@ -35,7 +38,7 @@ todaySales:any;
 todayRevenueV:any;
 totalRV:any;
 
-  constructor(private vendorServ:VendorServicesService,private route:ActivatedRoute,private auth:AuthService,private userServ:UserServiceService,private commande:CommandeService){}
+  constructor(private vendorServ:VendorServicesService,public dialog:MatDialog,private route:ActivatedRoute,private auth:AuthService,private userServ:UserServiceService,private commande:CommandeService){}
   ngOnInit(): void {
     let id=this.route.snapshot.paramMap.get('id');
     console.log(id);
@@ -214,6 +217,29 @@ this.userServ.VendeurReT(id)
         }
       });
     }
+    //dialog detais articles
+    detaisArticle(i:string):void {
+      const dialogRef = this.dialog.open(ArticleDetailComponent, {
+        data: {id:i},
+      });
+    
+      dialogRef.afterClosed().subscribe(() => {
+        console.log('The dialog was closed');
+      
+      });
+    }
+    //dialog update article
+    dial(i:string):void {
+      const dialogRef = this.dialog.open(UpdateArticleComponent, {
+        data: {id:i},
+      });
+    
+      dialogRef.afterClosed().subscribe(() => {
+        console.log('The dialog was closed');
+      
+      });
+    }
+
   }
   //how get detail page image +data angular 15?
 

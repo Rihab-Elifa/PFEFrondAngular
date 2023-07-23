@@ -1,6 +1,8 @@
 
 <mat-drawer-container class="example-container" autosize>
+  
   <mat-drawer #drawer class="example-sidenav" mode="side">
+ 
     <p></p>
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <div class="vend">
@@ -239,13 +241,13 @@
     </div>
     <div class="card-footer">
       <p class="price"><span class="dol">$</span>{{p.prix}}</p>
-      <a class="btn c1" routerLink="DetailArt/{{p.id}}"><span class="material-icons">
+      <a class="btn c1" (click)="detaisArticle(p.id)"><span class="material-icons">
         info
         </span></a>
       <a  class="btn c2" (click)="supprimer(p.id)"><span class="material-icons">
         delete
         </span></a>
-      <a class="btn c3" routerLink="UpdateArticle/{{p.id}}"><span class="material-icons">
+      <a class="btn c3" (click)="dial(p.id)"><span class="material-icons">
         create
         </span></a>
     </div>
