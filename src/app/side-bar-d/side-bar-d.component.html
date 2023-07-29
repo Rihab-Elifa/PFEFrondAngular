@@ -30,16 +30,23 @@
     <p>
         <mat-toolbar class="nav">
          <button mat-icon-button class="example-icon"  (click)="drawer.toggle()"  aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
+          <mat-icon class="text2">menu</mat-icon>
         </button>
-        <span>My App</span>
+        <span class="text2">My App </span>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
+        <h4  class="text2">Bienvenue,{{us.nom}}</h4>
+        <img
+        id="profile-img"
+        src="../../assets/undraw_profile_pic_re_iwgo.svg"
+        class="profile-img-card"
+      />
+      <a  (click)="logout()">
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-         <mat-icon>share</mat-icon>
+       <mat-icon class="text2">logout</mat-icon>
        </button>
+       </a>
+          
+       
       </mat-toolbar>
       </p>
 

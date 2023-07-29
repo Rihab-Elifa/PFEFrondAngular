@@ -48,10 +48,16 @@ searchvalue:string=""
   selectedActivity:Activity= Activity.FOOD;
   durationInSeconds = 5;
   listeAct: string[] = activityy;
+   // Créer une fonction pour convertir les chaînes en énumération
+   getCategoryFromString(category: string): Activity {
+    return Activity[category as keyof typeof Activity];
+  }
   Restaurent:any[]=[];
   elect:any[]=[];
   e:any[]=[];
 htmlvalue=`<p style="color:red">inner html css</p>`
+selectedCategory: any; 
+ListAByCat:any[]=[];
   constructor(private _snackBar: MatSnackBar,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
   
  async ngOnInit() {
@@ -295,6 +301,20 @@ console.log(this.searchlist)
   })
   console.log("search list =>" ,this.searchlist)
 }
-
+//Liste du article by categorie 
+loadArticlesByCategory(category: any): void {
+  const selectedCategory = this.getCategoryFromString(category);
+  this.vendorServ.getAllArticleByCat(selectedCategory).subscribe(
+    (data) => {
+      
+     this.ListAByCat = data; // Assurez-vous que votre service renvoie les articles de la catégorie sélectionnée
+     this.selectedCategory = category; // Définir la catégorie sélectionnée
+     console.log("list du article by categorie recuperer ",data)
+    },
+    (error) => {
+      console.error('Erreur lors de la récupération des articles de la catégorie.', error);
+    }
+  );
+}
 
 }

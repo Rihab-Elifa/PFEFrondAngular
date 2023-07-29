@@ -1,0 +1,21 @@
+<div class="container cont">
+    <strong><h1>Category Name:</h1></strong>
+    <hr>
+    <div class="card1" style="width: 18rem;" *ngFor="let p of  elect">
+       
+     
+      <mat-card class="example-card">
+        <mat-card-header>
+         
+        </mat-card-header>
+        <img mat-card-image [src]="'data:image/jpeg;base64,'+p.image.bytes">
+        <mat-card-content>
+            <p>Name:{{p.nom}}</p>
+            <p>Pix:{{p.prix}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button><a  class="btn color"  >Add to cart</a></button>
+        </mat-card-actions>
+      </mat-card>
+      
+</div>

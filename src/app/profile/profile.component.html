@@ -34,12 +34,7 @@
     </span>
     </button>
   </a>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-   <mat-icon>share</mat-icon>
- </button>
+  
  <a  (click)="logout()">
  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
 <mat-icon>logout</mat-icon>
@@ -52,8 +47,8 @@
   <div class="col-4">
     <mat-card class="crd1">
       <mat-card-header>   
-        <!--NOTE  <img  [src]="'data:image/jpeg;base64,'+user.imageProfile.bytes" class="avatar"  >
-        -->
+         <img  [src]="'data:image/jpeg;base64,'+user.imageProfile.bytes" class="avatar"  >
+       
       </mat-card-header>
       <mat-card-content><h2>{{user.email}}</h2>
         <h1>Welcome {{subString}}</h1>

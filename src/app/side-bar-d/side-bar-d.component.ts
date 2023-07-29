@@ -96,6 +96,7 @@ export class SideBarDComponent implements OnInit,AfterViewInit   {
     next: (data) => {
       this.us = data;
       console.log(this.us.id);
+      console.log("le user",this.us);
       
    
     },

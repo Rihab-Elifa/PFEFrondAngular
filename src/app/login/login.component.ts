@@ -45,6 +45,7 @@ export class LoginComponent {
         } else if(role.includes('ROLE_CLIENT')){
           this.route.navigate(['profile']);
         }else {
+          //sous admin dashbord
           this.route.navigate(['dashbord']);
         }
        

@@ -47,11 +47,30 @@ h1{
 
 
 */
+//list du article by cat design
+.card1{
+    float: left;
+    margin-left: 3%;
+}
+.example-card {
+    max-width: 400px;
+  }
+.color{
+   background-color: #FF6000;
+}
+hr{
+    color:#FFA559;
+    font-size: larger;
+}
+//end desgin liste 
 .cclor{
     background-color: #FF6000;
 }
 .colorr{
     background-color: #FF6000;
+}
+.coll{
+    background-color:#FFE6C7;
 }
 .btn-outline{
     border-color: #FF6000;

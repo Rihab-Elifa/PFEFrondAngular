@@ -24,7 +24,7 @@ a{
 }
 .example-sidenav{
   padding: 0;
-  margin: 0;
+  
   list-style-type: none;
   background-color: #f2f2f2; /* Couleur de fond du sidebar */
 }
@@ -92,5 +92,6 @@ a{
 }
 .container-fluid .card {
   margin-right:0px;
+  margin-bottom: 10px;
 
 }

@@ -60,7 +60,7 @@ totalRV:any;
     });
    
     //get weekrevenue
-    this.userServ.weekRevenue('647860060826046450069a35')
+    this.userServ.weekRevenue('6435ab135c13310d70078141')
     .subscribe({
       next: (data) => {
         this.revenue=data;
@@ -84,7 +84,7 @@ totalRV:any;
       error: (e) => console.error(e)
     });
 //month revenue
-this.userServ.monthRevenue('647860060826046450069a35')
+this.userServ.monthRevenue('6435ab135c13310d70078141')
 .subscribe({
   next: (data) => {
     this.revenue2=data;

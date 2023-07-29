@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css" integrity="sha512-yDUXOUWwbHH4ggxueDnC5vJv4tmfySpVdIcN1LksGZi8W8EVZv4uKGrQc0pVf66zS7LDhFJM7Zdeow1sw1/8Jw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<!-- NOTE NAVBAR -->
-<div [innerHTML]="htmlvalue"></div>
+<!-- NOTE NAVBAR     <div [innerHTML]="htmlvalue"></div> -->
+
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <a class="navbar-brand"  href="#"><img class="logo" src="../../assets/logo.png"></a>
@@ -50,7 +50,7 @@
           <div class="btn-group" role="group" aria-label="Basic example">
          
             <button type="button" class="btn out"><a routerLink="/login"><i class="fa-solid fa-user"></i></a></button>
-            <button type="button" class="btn btn-outline"><a routerLink="cart"><i class="fa-solid fa-cart-flatbed-suitcase"></i> </a><span class="badge text-bg">4</span></button>
+            <button type="button" class="btn btn-outline"><a routerLink="cart"><i class="fa-solid fa-cart-flatbed-suitcase"></i> </a><span class="badge text-bg">{{products.length}}</span></button>
 
           </div>
       </div>
@@ -65,7 +65,7 @@
                 <i class="fa-solid fa-bars-staggered"></i>  categories
             </button>
             <ul class="dropdown-menu" >
-              <li *ngFor="let cat of listeAct"><a class="dropdown-item" href="#" >{{cat}}</a></li>
+              <li *ngFor="let cat of listeAct" (click)="loadArticlesByCategory(cat)"><a class="dropdown-item"  >{{cat}}</a></li>
             </ul>
           </div>
     </li>
@@ -80,7 +80,32 @@
     </li>
   </ul>
 <!-- NOTE NAVBAR CATEGORIE-->
+<div  class="container cont" *ngIf="selectedCategory">
+  
+    <strong><h1>Category : {{ selectedCategory }}</h1></strong>
+    <hr>
+    <div class="card1" style="width: 18rem;" *ngFor="let p of  ListAByCat">
+       
+     
+      <mat-card class="example-card">
+        <mat-card-header>
+         
+        </mat-card-header>
+        <img mat-card-image [src]="'data:image/jpeg;base64,'+p.image.bytes">
+        <mat-card-content>
+            <p>Name:{{p.nom}}</p>
+            <p>Pix:{{p.prix}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button><a  class="btn color" (click)="addToCart(p)" >Add to cart</a></button>
+        </mat-card-actions>
+      </mat-card>
+      
+</div>
 
+  <!--END list-->
+  </div>
+<div *ngIf="!selectedCategory">
 <!-- NOTE product new and location-->
 <div class="carousel-products">
   <!-- NOTE location products-->
@@ -522,13 +547,13 @@
   <!-- NOTE categorie1  coursoul-->
 
 <!-- NOTE  categorie link-->
-<a href="" class=" alert alert-danger categ-link ">more products</a>
+<a href="" class=" alert alert  categ-link coll">more products</a>
 <!-- NOTE  categorie link-->
 </div>
 <!-- NOTE categorie 2-->
 </div>
 <!-- NOTE categories-->
-
+</div>
 <div class="join-us">
   <h2>Join us </h2>
   <div class="btn-group" role="group" aria-label="Basic example">

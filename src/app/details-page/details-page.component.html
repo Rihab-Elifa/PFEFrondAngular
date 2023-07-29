@@ -2,8 +2,8 @@
 <mat-drawer-container class="example-container" autosize>
   
   <mat-drawer #drawer class="example-sidenav" mode="side">
- 
-    <p></p>
+ <img class="logo" src="../../assets/lo.png">
+    
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <div class="vend">
      
@@ -37,9 +37,7 @@
         </button>
         <span>My App</span>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
+       
         <a class="nav-link" routerLink="addP/{{page2.id}}">
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
           <span class="material-icons">
@@ -153,48 +151,28 @@
  <div class="cont">
   <mat-card class="example-card">
       <mat-card-header>
-      <h5 class="card-title">statastique Derniere somaine</h5>
+        <p></p>
+      <h5 class="card-title"></h5>
       </mat-card-header>
        <!--chart end-->
        <mat-card-content>
     <div class="chart-card">
      
-      <h2>Bar Chart</h2>
+      <h2>statastique Derniere somaine</h2>
     <canvas id="barchart" ></canvas>
   </div>
    
   <div class="chart-card">
   
-    <h2>Pie chart </h2>
-    <canvas id="piechart" >  </canvas>
+    <h2>statastique Derniere mois </h2>
+    <canvas id="barchart2" >  </canvas>
   
   </div>
   </mat-card-content>
    </mat-card>
 </div>
  <!--ENDNote-->
- <div class="cont">
-  <mat-card class="example-card">
-      <mat-card-header>
-      <h5 class="card-title">statastique Derniere mois</h5>
-      </mat-card-header>
-       <!--chart end-->
-       <mat-card-content>
-    <div class="chart-card">
-     
-      <h2>Bar Chart</h2>
-    <canvas id="barchart2" ></canvas>
-  </div>
-   
-  <div class="chart-card">
-  
-    <h2>Pie chart </h2>
-    <canvas id="piechart2" >  </canvas>
-  
-  </div>
-  </mat-card-content>
-   </mat-card>
-</div>
+
 </div>
 
 
@@ -229,8 +207,7 @@
 
   <div class="card">
     
-    <a href="" class="icons"><i class="fa-regular fa-eye"></i></a>
-    <a href="" class="icons"><i class="fa-solid fa-heart"></i></a>
+   
     <img [src]="'data:image/jpeg;base64,'+p.image.bytes">
     <h2>{{p.nom}}</h2>
     <h2>Stock:{{p.nbstock}}</h2>

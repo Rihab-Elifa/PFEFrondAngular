@@ -28,6 +28,7 @@ import { SideBarDComponent } from './side-bar-d/side-bar-d.component';
 import { ChartComponent } from './chart/chart.component';
 import { LivreurComponent } from './livreur/livreur.component';
 import { OrderClComponent } from './order-cl/order-cl.component';
+import { CatgorieComponent } from './catgorie/catgorie.component';
 
 
 const routes: Routes = [{path:'register',component:RegisterComponent},
@@ -88,6 +89,7 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
 
 {path:'social',component:SocialComponent},
 {path:'home',component:HomeComponent},
+{path:'categorie',component:CatgorieComponent},
 {path:'home/cart',component:CartComponent},
 {path:'home/cart/commander',component:CommanderComponent},
 {path:'tabless',component:TableListComponent},
