@@ -11,7 +11,17 @@ input:focus{
        color:#454545;
     box-shadow: 2px 2px 4px 3px #FFE6C7;
     }
-    .warnn{background-color: #FFA559;}
+    .warnn{background-color: #FFA559;
+    margin-left: 40%;}
     h1{
         text-align: center;
     }
+ 
+  .alert{
+    background-color: #FFE6C7;
+  }
+  .exp:focus{
+    outline:0;
+    border:solid 4px #FFE6C7;
+    
+    box-shadow: 2px 2px 4px 3px #FFE6C7;}

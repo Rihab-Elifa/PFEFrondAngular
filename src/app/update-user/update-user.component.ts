@@ -4,6 +4,7 @@ import { UserServiceService } from '../_services/user-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { from } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-user',
@@ -28,7 +29,7 @@ export class UpdateUserComponent implements OnInit {
   
   //email control
   email = this.user.email;
-
+  show=false;
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -38,7 +39,7 @@ export class UpdateUserComponent implements OnInit {
   }
   //password
   hide = true;
-  constructor(private UserService: UserServiceService,
+  constructor(private _snackBar: MatSnackBar,private UserService: UserServiceService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -65,10 +66,15 @@ export class UpdateUserComponent implements OnInit {
       {
         next:(res)=>{
           console.log('User updated successfully:', res);
+        
         },
         error:(e)=>console.error(e)
       }
       
     );
+  }
+  openSnackBar(message: string) {
+    const m=message+ ' your profile update successfly!!'
+    this._snackBar.open(m,'Undo');
   }
 }

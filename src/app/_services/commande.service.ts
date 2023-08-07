@@ -44,7 +44,7 @@ export class CommandeService {
     return this.http.get(AUTH_API3);
   }
   //get commande by id
-   getCommandeById(id:string|null):Observable<any>{
+   getCommandeById(id:string):Observable<any>{
     return this.http.get(`${AUTH_API4}/${id}`);
   }
   //get list client 

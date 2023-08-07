@@ -11,6 +11,7 @@ import { CommandeService } from '../_services/commande.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ArticleDetailComponent } from '../article-detail/article-detail.component';
 import { UpdateArticleComponent } from '../update-article/update-article.component';
+import { DetailCommandeComponent } from '../detail-commande/detail-commande.component';
 
 @Component({
   selector: 'app-details-page',
@@ -37,7 +38,8 @@ totalSales:any;
 todaySales:any;
 todayRevenueV:any;
 totalRV:any;
-
+cmd:any;
+ArticleComd:any[]=[];
   constructor(private vendorServ:VendorServicesService,public dialog:MatDialog,private route:ActivatedRoute,private auth:AuthService,private userServ:UserServiceService,private commande:CommandeService){}
   ngOnInit(): void {
     let id=this.route.snapshot.paramMap.get('id');
@@ -116,6 +118,7 @@ this.renderChart(this.date2,this.rev2,'pie','piechart2');
   },
   error: (e) => console.error(e)
 });
+
 //total sales
 this.userServ.VSTotat(id)
 .subscribe({
@@ -239,7 +242,31 @@ this.userServ.VendeurReT(id)
       
       });
     }
+    viewMoreDetails(n:string):void{
 
+    }
+    fetchCommandDetails(idCaisse: string): void {
+      this.commande.getCommandeById(idCaisse).subscribe({
+        next: (data) => {
+          this.cmd = data;
+          console.log('detail du commande ', this.cmd);
+          this.ArticleComd = this.cmd.articles; // Assuming 'articles' is the property in the cmd object that holds the list of articles
+          // Handle the fetched data as needed
+        },
+        error: (e) => console.error(e)
+      });
+    }
+
+    dialogg(i:string):void {
+      const dialogRef = this.dialog.open(DetailCommandeComponent, {
+        data: {id:i},
+      });
+    
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+       
+      });
+    }
   }
   //how get detail page image +data angular 15?
 

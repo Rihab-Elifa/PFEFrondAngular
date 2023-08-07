@@ -4,13 +4,15 @@ import { page } from '../Models/page';
 import { VendorServicesService } from '../_services/vendor-services.service';
 import { activityy } from '../Models/activityy';
 import { Region } from '../Models/Region';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { UserServiceService } from '../_services/user-service.service';
 
 @Component({
   selector: 'app-vendre',
   templateUrl: './vendre.component.html',
   styleUrls: ['./vendre.component.scss']
 })
-export class VendreComponent {
+export class VendreComponent implements OnInit{
   items!:any[];
   addItem(newItem: any) {
     this.items.push(newItem);
@@ -23,6 +25,9 @@ export class VendreComponent {
    
   listeAct2 = Object.values(activityy);
   activity:any
+  show=false
+  r='';
+  user:any;
   @Input() page:page={
     id: '',
     title: '',
@@ -37,14 +42,35 @@ export class VendreComponent {
   }
   imageProfile!: File;
   imageCouverture!: File;
-
- constructor(private vendorServ:VendorServicesService){}
+ // horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+ constructor(private userServ:UserServiceService,private vendorServ:VendorServicesService,private _snackBar: MatSnackBar){}
+  ngOnInit(): void {
+   
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+      const email = currentUser.email;
+    
+    this.userServ.getUserByemail(email)
+    .subscribe({
+      next: (data) => {
+        this.user = data;
+        console.log(data);
+        console.log(this.user.id);
+        
+    this.id=this.user.id;
+  
+      }
+    });
+  }
 
   ajouterVente(): void {
     this.vendorServ.ajouterPage(this.id, this.page, this.imageProfile, this.imageCouverture)
       .subscribe(resp => {
         
         console.log('Page de vente ajoutée avec succès')
+       
+        this.show=true;
+      this.r=resp;
       });
   }
   onProfilImageSelected(event: any): void {
@@ -80,5 +106,10 @@ showOutput(val:any){
  
 }
 
-
+openSnackBar() {
+  this._snackBar.open('Success!', 'Fermer', {
+   //horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,
+  });
+}
 }

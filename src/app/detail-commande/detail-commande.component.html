@@ -1,1 +1,9 @@
-<p>detail-commande works!</p>
+<!-- command-details-modal.component.html -->
+<div class="class">
+    <h2>Command Details</h2>
+<p class="c">Date: {{ cmd.date }}</p>
+<p class="c" *ngFor="let article of ArticleComd">
+  {{ article.quantity }} {{ article.nom }}
+</p>
+<button mat-button class="close" (click)="onNoClick()">Close</button>
+</div>

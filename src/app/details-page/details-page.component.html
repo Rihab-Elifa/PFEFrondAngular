@@ -59,14 +59,29 @@
               </span></button>
               
                 
-<mat-menu #menu="matMenu" >
-  <div  *ngFor="let n of notif">
-    <a class="nav-link" routerLink="addP/{{n.idCaisse}}">
-  <button mat-menu-item >{{n.title}}</button></a>
-  <button mat-menu-item>{{n.body}}</button>
-<hr></div> 
-</mat-menu>
- 
+              <mat-menu #menu="matMenu" >
+                <div  *ngFor="let n of notif,let i = index">
+                 
+                <button mat-menu-item [matMenuTriggerFor]="submenu">{{n.title}}{{i+1}}  </button>
+                <mat-menu #submenu="matMenu">
+                  <button mat-menu-item (click)="dialogg(n.idCaisse)" >
+                    <ng-container *ngIf="cmd && n.idCaisse === cmd.idCaisse">
+                      <h3>Order du {{ cmd.date }}</h3>
+                      <br>
+                      <p *ngFor="let a of ArticleComd">{{ a.quantity }} {{ a.nom }}</p>
+                    </ng-container>
+                    <ng-container *ngIf="!cmd || n.idCaisse !== cmd.idCaisse">
+                      <p>Loading...</p>
+                    </ng-container>
+
+
+                 </button>
+                 
+                  <!-- Add more submenu items as needed -->
+                </mat-menu>
+             
+              <hr></div> 
+              </mat-menu>
 
        <a  (click)="logout()">
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">

@@ -46,7 +46,7 @@
 
     <!--NOTE update user with angular materials-->
     <div>
-        <div class="row">
+        <div class="row" >
            <!--
              <div class="col-4">
                 <mat-card>
@@ -55,10 +55,10 @@
 
             </div>
            -->
-            <div class="col-8">
-                <mat-card>
-                    <mat-card-header class="edit"><h1>Edit Profile</h1></mat-card-header>
-                    <mat-card-content>
+            <div class="col-8" >
+            
+                    <h1>Edit Profile</h1>
+                 
                         <!--form-->
                         <form (ngSubmit) = "onSubmit()">
                             <!--
@@ -72,7 +72,7 @@
                             <div class="form-group">
                                 <mat-form-field class="example">
                                     <mat-label>First Name</mat-label>
-                                    <input matInput id = "firstName" 
+                                    <input matInput id = "firstName" #message
                                     [(ngModel)] = "user.firstName" name = "firstName">
                                   </mat-form-field>
                                   <mat-form-field class="example">
@@ -132,7 +132,7 @@
 
                             
                          <div >
-                            <button class="classe" extended mat-fab>Warn</button>
+                            <button class="classe" (click)="openSnackBar(message.value)"  extended mat-fab>Warn</button>
                             <!--<button class = "btn btn-danger css" type ="submit">Submit</button>-->
                          </div>
                          
@@ -142,8 +142,7 @@
 
                         <!--form end-->
 
-                    </mat-card-content>
-                  </mat-card>
+                   
 
             </div>
         </div>

@@ -27,10 +27,11 @@ export class UpdatePageComponent  implements OnInit{
 
   }
    id!:string|null;
- 
+  user:any;
+  show=false;
   constructor(private vendorSer: VendorServicesService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,private userServ:UserServiceService) { }
    
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
@@ -45,7 +46,16 @@ export class UpdatePageComponent  implements OnInit{
       error: (e) => console.error(e)
     });
 
-    
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+    const email = currentUser.email;
+  
+  this.userServ.getUserByemail(email)
+  .subscribe({
+    next: (data) => {
+      this.user = data;
+    },
+    error: (e) => console.error(e)
+  });
     
    
     
@@ -55,10 +65,11 @@ export class UpdatePageComponent  implements OnInit{
   
 
   updatePage():void{ 
-    this.vendorSer.updatePage(this.id,this.page)
+    this.vendorSer.updatePage(this.user.id,this.page)
     .subscribe({
       next: (data) => {
           console.log('page updated successfully:', data);
+          this.show=true;
         },
         error:(e)=>console.error(e)
       }
