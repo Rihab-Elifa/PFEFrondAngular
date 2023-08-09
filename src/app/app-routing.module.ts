@@ -29,6 +29,7 @@ import { ChartComponent } from './chart/chart.component';
 import { LivreurComponent } from './livreur/livreur.component';
 import { OrderClComponent } from './order-cl/order-cl.component';
 import { CatgorieComponent } from './catgorie/catgorie.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [{path:'register',component:RegisterComponent},
@@ -102,7 +103,7 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
 {path:'chart',component:ChartComponent},
 {path:'detailP/:id',component:DetailsPageComponent},
 
-
+{path:'footer',component:FooterComponent}
 ];
 
 @NgModule({

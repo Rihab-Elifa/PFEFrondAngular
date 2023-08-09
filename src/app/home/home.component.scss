@@ -90,8 +90,8 @@ a{
 }
 .logo{
     font-size: small;
-    width: 200px;
-    height: 40px;
+  
+  height: 70px;
     margin-top: 0%;
     margin-left: 0%;
     margin-bottom: 0%;
@@ -150,7 +150,12 @@ a{
     text-decoration: none;
     color:gray;
 }
-
+.lo{
+    height: 50px;
+    width: 150px;
+    position:relative;
+    float: left;
+  }
 
 
 /* NOTE end search*/

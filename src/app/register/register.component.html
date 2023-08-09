@@ -1,11 +1,9 @@
 <div class="login">
   <div class="col-md-12">
     <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
+      <img src="assets\icons\1024.png" alt="Logo" class="logo">
+      <h2>Commençons l’aventure</h2>
+     
       <form
         *ngIf="!isSuccessful"
         name="form"
@@ -119,7 +117,8 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="btn  btn-block bouton">Sign Up</button>
+          <button class="btn  btn-block bouton">Registrer</button>
+          <h4>   Vous avez déjà un compte ?<a routerLink="/login"> Se connecter</a></h4>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

@@ -1,37 +1,54 @@
-.login{
-  background-color: #FFE6C7;
+/* For the white background and orange container */
+.login {
+  background-image: url('/assets/icons/fo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   padding-top: 100px;
- 
   padding-bottom: 285px;
-  color: #454545;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
 }
+
+
+
+.card {
+  background-color: rgba(255, 255, 255, 0.7); /* White container with 70% opacity */
+  padding: 10px 15px 20px;
+  margin: 0 auto 15px;
+  margin-top: 30px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  color: #454545;
+
+  width: 450px; /* Adjust the width as desired */
+  height: 390px; /* Adjust the height as desired */
+}
+
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.card-container.card {
+  max-width: 700px !important; /* Augmentation de la largeur du conteneur */
+  padding: 40px 40px;
+}
+
 label {
   display: block;
   margin-top: 10px;
 }
 
-.card-container.card {
-  max-width: 400px !important;
-  padding: 40px 40px;
-}
-
-.card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  color:#454545;
-}
-
 .profile-img-card {
-  width: 96px;
-  height: 96px;
+  width: 170px;
+  height: 120px;
   margin: 0 auto 10px;
   display: block;
   -moz-border-radius: 50%;
@@ -39,20 +56,37 @@ label {
   border-radius: 50%;
 }
 
-
-
-input:focus{
-outline:0;
-border:solid 4px #FFE6C7;
-
-box-shadow: 2px 2px 4px 3px #FFE6C7;
+input:focus {
+  outline: 0;
+  border: solid 4px #ffe6c7;
+  box-shadow: 2px 2px 4px 3px #ffe6c7;
 }
-.bouton{
-  background-color: #FFA559;
-  border:solid 4px #FFE6C7;
-   color:#454545;
-box-shadow: 2px 2px 4px 3px #FFE6C7;
-}
-a{
+
+.bouton {
+  background-color: #ffa559;
+  border: solid 4px #ffe6c7;
   color: #454545;
+  box-shadow: 2px 2px 4px 3px #ffe6c7;
+  padding: 10px 20px;
+  margin-top: 20px;
+  display: block; /* Pour centrer le bouton */
+  margin-left: auto; /* Pour centrer le bouton */
+  margin-right: auto; /* Pour centrer le bouton */
+  width: 300px; /* Ajuster la largeur du bouton */
+}
+
+.logo {
+  width: 50px; /* Définir la largeur souhaitée pour le logo */
+  height: 50px; /* Définir la hauteur souhaitée pour le logo */
+  margin: 0 auto; /* Centre le logo horizontalement */
+  display: block; /* Assurez-vous que le logo est affiché en tant que bloc */
+  border-radius: 50%; /* Rend le logo circulaire */
+  object-fit: cover; /* Ajuste la taille de l'image pour remplir le cercle */
+}
+
+a {
+  color: #454545;
+}
+h4{
+  text-align: center;
 }

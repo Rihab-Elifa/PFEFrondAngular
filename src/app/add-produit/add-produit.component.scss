@@ -1,12 +1,13 @@
 h1{
-    text-align: center;
+   
     background-color: #FFE6C7;
     height: 50px;
     padding-top: 10px;
+    padding-left: 5px;
 }
 .clorrr{
     background-color: #FF6000;
-    margin-left: 40%;
+    margin-left: 50%;
 }
 .class{
     
@@ -25,4 +26,9 @@ input:focus{
         margin-top: 50px;
         margin-left: 300px;
         margin-right: 300px;
+      }
+      .lo{
+        height: 50px;
+        position:relative;
+        float: left;
       }
