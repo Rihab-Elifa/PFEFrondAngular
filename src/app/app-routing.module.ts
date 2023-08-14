@@ -30,6 +30,7 @@ import { LivreurComponent } from './livreur/livreur.component';
 import { OrderClComponent } from './order-cl/order-cl.component';
 import { CatgorieComponent } from './catgorie/catgorie.component';
 import { FooterComponent } from './footer/footer.component';
+import { OrderClientComponent } from './order-client/order-client.component';
 
 
 const routes: Routes = [{path:'register',component:RegisterComponent},
@@ -47,7 +48,8 @@ const routes: Routes = [{path:'register',component:RegisterComponent},
   
   {path:'addP',component:AddProduitComponent},
   {path:'UpdatePage/:id',component:UpdatePageComponent},
-  {path:'OrderUser/:id',component:OrderClComponent}
+  {path:'OrderUser/:id',component:OrderClComponent},
+  {path:'Order/:id',component:OrderClientComponent}
   
   
   
