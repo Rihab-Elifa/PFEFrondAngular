@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { activityy } from '../Models/activityy';
+import { UserServiceService } from '../_services/user-service.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -48,6 +49,7 @@ searchvalue:string=""
   selectedActivity:Activity= Activity.FOOD;
   durationInSeconds = 5;
   listeAct: string[] = activityy;
+  user:any;
    // Créer une fonction pour convertir les chaînes en énumération
    getCategoryFromString(category: string): Activity {
     return Activity[category as keyof typeof Activity];
@@ -58,7 +60,9 @@ searchvalue:string=""
 htmlvalue=`<p style="color:red">inner html css</p>`
 selectedCategory: any; 
 ListAByCat:any[]=[];
-  constructor(private _snackBar: MatSnackBar,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
+recommande:any[]=[];
+re:any[]=[];
+  constructor(private _snackBar: MatSnackBar,private userServ:UserServiceService,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
   
  async ngOnInit() {
     this.vendorServ.getAllArticle().subscribe({
@@ -67,9 +71,40 @@ ListAByCat:any[]=[];
          console.log(data);
         
       },
-      error: (e) => console.error(e)
+      error: (e) => console.error(e) }) 
+      
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+    const email = currentUser.email;
+  
+  this.userServ.getUserByemail(email)
+  .subscribe({
+    next: (data) => {
+      this.user = data;
+      this.vendorServ.recommander(this.user.id).subscribe({
+        next:(data)=>{
+          this.recommande=data;
+               //construire une list de 3 pour le curseul
+            console.log("recommanded liste",this.recommande)
+ let groupeActuel: any[] = [];
 
-    }) 
+ for (let i = 0; i < this.recommande.length; i++) {
+   groupeActuel.push(this.recommande[i]);
+
+   if (groupeActuel.length === 3 || i === this.recommande.length - 1) {
+     this.re.push(groupeActuel);
+     groupeActuel = [];
+   }
+ }
+
+        }
+      })
+    
+      
+    },
+    error: (e) => console.error(e)
+  });
+
+   
    //liste article local 
    /*  **********get postion user ********* */
    navigator.geolocation.getCurrentPosition((position) => {

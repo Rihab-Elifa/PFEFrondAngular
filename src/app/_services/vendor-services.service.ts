@@ -34,6 +34,7 @@ export class VendorServicesService {
 
   private apiUrl15= 'http://localhost:8085/pages/UserBypages';
   private apiUrl16= 'http://localhost:8085/article/articlesByCategory';
+  private apiUrl17= 'http://localhost:8085/article/ArticleRecommend';
  
   
   
@@ -186,6 +187,12 @@ getLocal(a:Activity,lat:Number,lon:Number):Observable<any>{
 UserByPage(id:string):Observable<any>{
   return this.http.get<String>(`${this.apiUrl15}/${id}`);
 }
+
+// get recommanded article
+recommander(id:string):Observable<any>{
+  return this.http.get<String>(`${this.apiUrl17}/${id}`);
+}
+
 
 
 }

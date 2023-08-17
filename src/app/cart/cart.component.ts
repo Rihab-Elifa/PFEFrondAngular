@@ -50,9 +50,16 @@ export class CartComponent implements OnInit{
       { quantity: 1, prix: 0 }
     ).prix;
   }
-  Commander(product:any){
-    this.router.navigate(['home/cart/commander']);
+  Commander(){
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+     
+    if (currentUser && currentUser.email) {
+      this.router.navigate(['home/cart/commander']); // Sinon, naviguez vers la page de commande
+      
+    } else {
+      this.router.navigate(['/login']); // Naviguez vers la page de login si l'utilisateur n'est pas connecté
 
+    }
   }
 
   updateQuantity(product: any) {
