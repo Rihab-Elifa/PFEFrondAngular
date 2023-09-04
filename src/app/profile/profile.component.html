@@ -50,17 +50,18 @@
          <img  [src]="'data:image/jpeg;base64,'+user.imageProfile.bytes" class="avatar"  >
        
       </mat-card-header>
-      <mat-card-content><h2>{{user.email}}</h2>
+      <mat-card-content>
         <h1>Welcome {{subString}}</h1>
-        <h2> Name:{{user.firstName}}</h2>
-        <h2>phone:{{user.phone}}</h2></mat-card-content>
+        <h2> {{user.firstName}}</h2>
+        <h2> <i class="fa fa-envelope"></i> {{user.email}}</h2>
+        <h2><i class="fa fa-phone"></i>{{user.phone}}</h2></mat-card-content>
         <button mat-fab extended class="warnn">
-          <mat-icon>favorite</mat-icon>
-          <a class="nav-link" routerLink="vendor">Create page</a>
+     
+          <a class="nav-link" routerLink="vendor">   <i class="fas fa-store"></i> Page</a>
         </button>
         <button mat-fab extended class="colorrr">
-          <mat-icon>favorite</mat-icon>
-          <a class="nav-link" HREF="https://docs.google.com/forms/d/e/1FAIpQLSfsUg30TDF4ywV1LVXCamFk05iN3351nq4y7yFvrnK39Ji77g/viewform?fbclid=IwAR0cyGZ0-UUcj5dgiQY1QtqKylTb7cu5PnBaVxoiV05EDTA4Np94rjE-Oho">Partner</a>
+         
+          <a class="nav-link" HREF="https://docs.google.com/forms/d/e/1FAIpQLSfsUg30TDF4ywV1LVXCamFk05iN3351nq4y7yFvrnK39Ji77g/viewform?fbclid=IwAR0cyGZ0-UUcj5dgiQY1QtqKylTb7cu5PnBaVxoiV05EDTA4Np94rjE-Oho"><i class="fas fa-truck"></i> Partner</a>
         </button>
     </mat-card>
   </div>

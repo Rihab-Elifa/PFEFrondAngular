@@ -3,6 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VendorServicesService } from '../_services/vendor-services.service';
 import { page } from '../Models/page';
 import { page2 } from '../Models/page2';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+import { ValideComponent } from '../valide/valide.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-my-pages',
@@ -12,7 +16,7 @@ import { page2 } from '../Models/page2';
 export class MyPagesComponent implements OnInit {
   pages!:page2[];
   idUser!:string|null;
-   constructor(private route:ActivatedRoute,private router:Router,private vendorServ:VendorServicesService){};
+   constructor(private route:ActivatedRoute,private router:Router,private vendorServ:VendorServicesService,public dialog: MatDialog){};
   ngOnInit(): void {
     let id=this.route.snapshot.paramMap.get('id');
     this.idUser=id;
@@ -40,6 +44,12 @@ export class MyPagesComponent implements OnInit {
   remove(idPage:string):void{
     this.vendorServ.deletePage(this.idUser,idPage).subscribe(() => {
       // code à exécuter après la suppression de la page
+      //affiche model de validation
+      Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+      )
     });
   }
 

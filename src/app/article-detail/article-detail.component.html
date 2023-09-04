@@ -2,12 +2,32 @@
    <div class="container">
     <h2><Details>  detail article</Details></h2>
     <div class="container"><img class="image" [src]="'data:image/jpeg;base64,'+article.image.bytes"></div>
+    <!-- NOTE total review-->
+    <i class="fa-regular fa-star"  [ngClass]="{'fa-solid':globalRat>=1,'fa-regular':globalRat<1}"  ></i>
+    <i class="fa-regular fa-star" [ngClass]="{'fa-solid':globalRat>=2,'fa-regular':globalRat<2}"></i>
+    <i class="fa-regular fa-star" [ngClass]="{'fa-solid':globalRat>=3,'fa-regular':globalRat<3}"></i>
+    <i class="fa-regular fa-star" [ngClass]="{'fa-solid':globalRat>=4,'fa-regular':globalRat<4}"></i>
+    <i class="fa-regular fa-star" [ngClass]="{'fa-solid':globalRat>=5,'fa-regular':globalRat<5}"></i>
+    <div class="rating-moy" > {{globalRat}} </div>
     
-    
-    <p>title:{{article.nom}}</p>
+<!-- NOTE user review review-->
+<li class="list-group-item">
+   <i class="fa-regular fa-star"  [ngClass]="{'fa-solid':userRatNumber>=1,'fa-regular':userRatNumber<1}" (click)="starclass(1)"></i>
+   <i class="fa-regular fa-star"  [ngClass]="{'fa-solid':userRatNumber>=2,'fa-regular':userRatNumber<2}" (click)="starclass(2)"></i>
+   <i class="fa-regular fa-star"  [ngClass]="{'fa-solid':userRatNumber>=3,'fa-regular':userRatNumber<3}" (click)="starclass(3)" ></i>
+   <i class="fa-regular fa-star"  [ngClass]="{'fa-solid':userRatNumber>=4,'fa-regular':userRatNumber<4}" (click)="starclass(4)" ></i>
+   <i class="fa-regular fa-star"  [ngClass]="{'fa-solid':userRatNumber>=5,'fa-regular':userRatNumber<5}" (click)="starclass(5)" ></i>
+   <button type="button" (click)="addRat()"  class="btn btn-warning">edit</button>
+
+  
+
+</li>
+
+<p>title:{{article.nom}}</p>
     <p>description:{{article.description}}</p>
     <p>prix:{{article.prix}}</p>
     <p>quantity:{{article.nbstock}}</p>
+    
    </div>
 
 

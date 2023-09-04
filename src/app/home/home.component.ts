@@ -20,6 +20,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { activityy } from '../Models/activityy';
 import { UserServiceService } from '../_services/user-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ArticleDetailComponent } from '../article-detail/article-detail.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -57,12 +59,13 @@ searchvalue:string=""
   Restaurent:any[]=[];
   elect:any[]=[];
   e:any[]=[];
+  rr:any[]=[];
 htmlvalue=`<p style="color:red">inner html css</p>`
 selectedCategory: any; 
 ListAByCat:any[]=[];
 recommande:any[]=[];
 re:any[]=[];
-  constructor(private _snackBar: MatSnackBar,private userServ:UserServiceService,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService){}
+  constructor(private _snackBar: MatSnackBar,private userServ:UserServiceService,private vendorServ:VendorServicesService,private panierSer:PanierService,private msg: AngularFireMessaging,private not:NotificationService,public dialog:MatDialog){}
   
  async ngOnInit() {
     this.vendorServ.getAllArticle().subscribe({
@@ -129,7 +132,7 @@ re:any[]=[];
       (data)=>{
        console.log('hello');
         this.Local= data;
-         console.log(data);
+         console.log("local article",data);
         
       }
   
@@ -176,7 +179,20 @@ re:any[]=[];
 this.vendorServ.getAllArticleByCat(Activity.FOOD).subscribe({
   next:(data)=>{
     this.Restaurent=data;
-     console.log("RESTAURANTS",data);
+     console.log("FOOD",data);
+     //construire une list de 3 pour le curseul
+
+ let groupeActuel: any[] = [];
+
+ for (let i = 0; i < this.Restaurent.length; i++) {
+   groupeActuel.push(this.Restaurent[i]);
+
+   if (groupeActuel.length === 3 || i === this.Restaurent.length - 1) {
+     this.rr.push(groupeActuel);
+     groupeActuel = [];
+   }
+ }
+    
     
   },
   error: (e) => console.error(e)
@@ -350,6 +366,17 @@ loadArticlesByCategory(category: any): void {
       console.error('Erreur lors de la récupération des articles de la catégorie.', error);
     }
   );
+}
+///***********************************detail articles */
+detaisArticle(i:string):void {
+  const dialogRef = this.dialog.open(ArticleDetailComponent, {
+    data: {id:i},
+  });
+
+  dialogRef.afterClosed().subscribe(() => {
+    console.log('The dialog was closed');
+  
+  });
 }
 
 }

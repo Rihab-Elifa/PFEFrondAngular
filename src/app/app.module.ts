@@ -90,6 +90,7 @@ import { RegisterSAdminComponent } from './register-sadmin/register-sadmin.compo
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { Dialog22Component } from './dialog22/dialog22.component';
 import { CatgorieComponent } from './catgorie/catgorie.component';
+import { ValideComponent } from './valide/valide.component';
 @NgModule({
   declarations: [
     DialogOverviewExampleDialogComponent,
@@ -133,7 +134,8 @@ import { CatgorieComponent } from './catgorie/catgorie.component';
         RegisterSAdminComponent ,
         DashbordComponent,
         Dialog22Component,
-        CatgorieComponent
+        CatgorieComponent,
+        ValideComponent
   
   
    
